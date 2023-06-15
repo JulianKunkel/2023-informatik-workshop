@@ -1,0 +1,152 @@
+% This file provides the generic header that sets up the page formatting and
+% common custom macro and environment definitions that can be used for an exercise
+% or tutorial sheet in a university course.
+%
+% You can consult the `00-Header.sty` file for a full list of available macros.
+%
+% --------------------80-CHARACTER-SOURCE-LINE-WIDTH-GUIDE----------------------
+
+% The documentclass is set to an a4 paper article using KOMA-script
+\documentclass[paper=a4]{scrartcl}
+
+\newcommand{\theauthor}{Jonathan Decker}
+\newcommand{\thecourse}{Practical course on High-Performance Computing}% Course long name
+\newcommand{\thecourseabbr}{PCHPC} % Course abbreviation
+\newcommand{\thetype}{Git Exercise} % e.g. Exercise, Tutorial
+\newcommand{\theorganization}{Universität Göttingen} % e.g. University Göttingen
+\newcommand{\theinstitution}{Institute for Computer Science / GWDG} % e.g. Department of Computer Science
+\newcommand{\theyear}{2023} %
+\newcommand{\theexercisenumber}{1} % number of the exercise
+\newcommand{\thedate}{2023.04.17} % e.g. March 28, 2022
+\newcommand{\theterm}{SoSe} % SoSe or WiSe 
+
+\usepackage{00-Header} % Custom header and macros
+\usepackage{longtable}
+\usepackage{textcomp}
+
+\definecolor{bgcolor}{HTML}{E0E0E0}
+\let\oldtexttt\texttt
+
+\renewcommand{\texttt}[1]{
+  \colorbox{bgcolor}{\oldtexttt{#1}}
+  }
+
+\begin{document}
+\date{\thedate}
+\exercise{\theexercisenumber}
+
+\parskip 8pt
+\makesheetheader
+
+\section*{Exercise Introduction}
+Before attempting the exercises in this document please ensure that you have read and understood the key topics covered in Tutorial.
+
+\tableofcontents
+
+\bigskip
+
+%\section*{Git}
+\task{Basic Git Setup}{5}
+Run the following commands and observe what they do. Feel free to test around. \\
+You can find help for any git command using \texttt{git <COMMAND> -{}-help} or \texttt{man git-<COMMAND>.}\\
+Feel free to replace \texttt{nano} with your favorite text editor command.
+
+\noindent
+\begin{longtable}{ p{.5\textwidth} p{.5\textwidth}}
+        \textbf{Setup}\\
+        \hline
+        \texttt{mkdir -p \$HOME/git-exercise \&\& cd \$HOME/git-exercise}\\
+        \texttt{git -{}-version}\\
+        \texttt{git config --global user.name "NAME"} & Set your name.\\
+        \texttt{git config --global user.email "EMAIL"} & Set your email.\\
+        \texttt{git config --global core.editor "nano"} & Set nano as editor for commit messages.\\
+        \texttt{git init --initial-branch=main}\\
+        \texttt{git status}\\
+\end{longtable}
+
+\task{Commits and branches}{10}
+\begin{longtable}{ p{.5\textwidth} p{.5\textwidth}}
+          \textbf{Committing}\\
+        \hline
+        \texttt{touch README}\\
+        \texttt{git status}\\
+        \texttt{git add .}\\
+        \texttt{git status}\\
+        \texttt{git commit -m "Initial Commit"} \\
+        \texttt{nano README} & Write a few words into the file and close nano.\\
+        \texttt{git status}\\
+        \texttt{git diff README} & See your changes, close with \keys{q}.\\
+        \texttt{git add README}\\
+        \texttt{git commit} & Write a commit message using nano, save and close.\\
+         & \\
+
+        \textbf{Reverting changes}\\
+        \hline
+        \texttt{rm README}\\
+        \texttt{git status}\\
+        \texttt{git reset --hard HEAD} & Undo the delete by reverting to the last commit\\
+        & this also undoes any other changes you made.\\
+        \texttt{git status}\\
+        \texttt{ls} & See that the README file is back.\\
+        \texttt{rm README}\\
+        \texttt{git commit -a -m "Deleted README"} & Use \textbf{-a} flag to commit a staged changes.\\
+        \texttt{git status}\\
+        \texttt{ls} & Confirm that README was deleted and the change was committed.\\
+        \texttt{git revert \keys{TAB + TAB}} & This shows a list of your recent commits.\\
+        & Type the first two characters of the id of your last commit and\\
+        & press \keys{TAB} and \keys{ENTER}.\\
+        & Write a commit message for your reverted commit, save and close nano.\\
+
+        \textbf{Creating branches}\\
+        \hline
+        \texttt{git checkout -b feature} & Create a new branch.\\
+        \texttt{echo "This is a new file." > new\_file} & \\
+        \texttt{git add new\_file} & Stage the new file.\\
+        \texttt{git commit -m"add a new file"} & Create a commit on \textbf{feature}.\\
+        \texttt{git log --graph --oneline --decorate} & Visualize the commit history.\\
+        \texttt{git checkout main} & Return to the initial branch.\\
+        \texttt{ls} & What happened to the working tree?\\
+      \end{longtable}
+
+      \task{Remote repositories}{5}
+      \begin{longtable}{ p{.5\textwidth} p{.5\textwidth}}      
+        \textbf{Remote repository}\\
+        \hline
+        & Make sure you can login to \url{https://gitlab.gwdg.de},\\
+        & \url{https://gitlab-ce.gwdg.de} or \url{https://github.com}. \\
+        & Replace the domain and username accordingly.\\
+        \texttt{git remote add origin "https://gitlab-ce.gwdg.de/USERNAME/git-exercise.git}\\
+        \texttt{git push --set-upstream origin main} & This will query your credentials if you do not have them stored already\\
+        & and create a remote repository.\\
+        & The visibility of the repository is private by default\\
+        & so only you and the teammates you have explicitly invited have access.\\
+        & Visit \url{https://gitlab-ce.gwdg.de/USERNAME/git-exercise} to view your new project.\\
+        \texttt{rm -rf $\tilde{~}$/git-exercise} & Delete the local copy of the repository.\\
+        \texttt{cd} & switch back to your home directory.\\
+        \texttt{git clone https://gitlab-ce.gwdg.de/USERNAME/git-exercise.git}\\
+        & Download the repository from remote.\\
+        \texttt{cd git-exercise}\\
+        & Make a change to README on the web and commit it.\\
+        \texttt{git pull}\\
+        \texttt{git log} & See the change you made on the web.\\
+\end{longtable}
+
+\task{Working with .gitignore}{2}
+\begin{longtable}{ p{.5\textwidth} p{.5\textwidth}}
+      
+        \textbf{gitignore}\\
+        \hline
+        \texttt{touch credentials}\\
+        \texttt{git status} & See that the credentials file can be staged.\\
+        \texttt{nano .gitignore} & Write \textbf{credentials} into the file and save your changes.\\
+        \texttt{git status} & See that only \textbf{.gitignore} can be staged and credentials is ignored.\\
+        \texttt{git add credentials}\\
+\end{longtable}
+
+Git has many more features, one of them, which is commonly used, is branching.
+\begin{literature}
+  \item Missing Semester; Version Control (Git): \url{https://missing.csail.mit.edu/2020/version-control/}
+  \item Learn Git branching: \url{https://learngitbranching.js.org/}
+\end{literature}
+
+\end{document}

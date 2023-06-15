@@ -1,0 +1,305 @@
+\newcommand\resetsubfigs{\setcounter{sub\@captype}{0}}
+
+\usepackage{url}
+\usepackage{hyperref}
+%\def\UrlBreaks{\do\/\do-\do.}
+\usepackage{tikz}
+\usepackage{textpos}
+\usepackage{caption}
+\usepackage{subfig}
+\DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
+\usepackage{svg}
+\usepackage{graphicx}
+
+\usepackage{xcolor}
+
+\usepackage[T1]{fontenc}
+\graphicspath{{fig/}{img/}}
+\usepackage[utf8]{inputenc}
+\usepackage{bera}
+\usepackage{setspace}
+
+\usepackage{listings} % benötigt [containsverbatim] bei \begin{frame}!!!!
+
+
+\definecolor{goettingenBlue}{HTML}{064270}
+\definecolor{goettingenBlue2}{HTML}{1a9acb}
+\definecolor{goettingenBlue3}{HTML}{d7e5f4}
+%\definecolor{HPSRed}{HTML}{d2002e}
+\definecolor{goettingenGray}{HTML}{f2f2f2}
+
+
+\mode<presentation>
+\beamer@compresstrue
+
+\setbeamertemplate{section in head/foot}
+{\color{goettingenBlue}\tiny \usebeamerfont{section in head/foot} \textbf{\insertsectionhead}}
+
+\setbeamertemplate{section in head/foot shaded}
+{\color{goettingenBlue}\tiny \tiny \usebeamerfont{section in head/foot}\insertsectionhead}
+
+\setbeamercolor*{mini frame}{fg=goettingenBlue,bg=white}
+
+\defbeamertemplate*{headline}{goettingen}
+{
+  \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{white}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+  
+  \begin{tikzpicture}
+  \fill[left color=goettingenBlue, right color=goettingenBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);  
+  \fill[color=goettingenBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
+  \end{tikzpicture}
+}%
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{frametitle}{goettingen}
+{%
+  \nointerlineskip%
+  \usebeamerfont{headline}%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{empty}
+    \usebeamerfont*{frametitle}\insertframetitle%
+      \ifx\insertframesubtitle\@empty%
+        \strut\par%
+      \else
+        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+      \fi%%
+    \usebeamerfont{headline}%
+ \end{beamercolorbox}%
+ %\begin{textblock*}{100mm}(.88\textwidth,-0.5cm)
+ %\includegraphics[width=2cm]{logo-goettingen}
+ %\end{textblock*}
+ %\vspace*{-1.5em}
+}
+\makeatletter
+
+\newcommand{\setlistspacing}[2]{\def\@ld{#1}\expandafter\def\csname
+@list\romannumeral\@ld \endcsname{\leftmargin\csname
+leftmargin\romannumeral\@ld \endcsname
+              \topsep    #2
+              \parsep    0\p@   \@plus\p@
+              \itemsep   #2}}
+
+% USEFUL definitions for the author onto the title page
+
+\newcommand\authorFooter[1]{\renewcommand\insertAuthorFooter{#1}}
+\newcommand\insertAuthorFooter{}
+
+\newcommand\authorURL[1]{\renewcommand\insertAuthorURL{#1}}
+\newcommand\insertAuthorURL{}
+
+\newcommand\slideNumber[1]{\renewcommand\insertSlideNumber{#1}}
+\newcommand\insertSlideNumber{\inserttotalframenumber}
+
+\newcommand\venue[1]{\renewcommand\insertVenue{#1}}
+\newcommand\insertVenue{}
+
+\newcommand\titleLogo[1]{\renewcommand\insertTitleLogo{#1}}
+\newcommand\insertTitleLogo{}
+
+\newcommand\titleLicense[1]{\renewcommand\insertTitleLicense{#1}}
+\newcommand\insertTitleLicense{}
+
+\newcommand\groupLogo[1]{\renewcommand\insertgroupLogo{#1}}
+\newcommand\insertgroupLogo{}
+
+\newcommand{\tiniest}{\@setfontsize{\tiniest}{5pt}{5pt}}
+
+\makeatother
+
+\newcommand{\srcsize}{\fontsize{7pt}{7pt}}
+\newcommand{\slogan}[1]{\srcsize \textbf{#1}}
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \hspace*{-2cm}
+  \begin{tikzpicture}
+  %\fill[color=goettingenGray] (0,0) rectangle (\the\paperwidth+2cm,\the\paperheight);
+  \node[inner sep=0pt] (logo) at (3.5cm,\the\paperheight-0.8cm) {\includegraphics[width=4cm]{logo-goettingen}};
+
+  \node[inner sep=0pt, anchor=west,text width=\the\paperwidth-1cm] (title) at (2cm,4.2cm) {\usebeamerfont{title}\Huge\textcolor{goettingenBlue}{\inserttitle}};
+
+  \node[inner sep=0pt, anchor=west,text width=\the\paperwidth-2cm] (title) at (2cm,3.2cm) {\usebeamerfont{subtitle}%
+  \textcolor{gray}{\insertsubtitle}};
+  
+  \node[inner sep=0pt, anchor=west] (author) at (2cm,5.2cm) {\usebeamerfont{author}\setstretch{0.5}\parbox{9cm}{\textcolor{gray}{ \insertauthor }}};
+  
+  
+
+  \fill[color=goettingenGray] (0,-1cm) rectangle (\the\paperwidth+2cm,0.5cm);
+  
+  \fill[left color=goettingenBlue, right color=goettingenBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);
+  
+  \fill[color=goettingenBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
+
+  \node[inner sep=0pt, anchor=east] (author) at (\the\paperwidth+1cm,2.3cm) {\insertTitleLogo};
+  
+  \node[inner sep=0pt, anchor=east] (author) at (\the\paperwidth+0.5cm,0.5cm) {\tiny \insertTitleLicense};
+
+  %\fill[color=goettingenGray] (2cm,\the\paperheight) rectangle (7cm,\the\paperheight-1.5cm);
+  \node[inner sep=0pt, anchor=east] (unit) at (\the\paperwidth,\the\paperheight-0.9cm) {\textcolor{gray}{\insertinstitute}};
+
+  \node[inner sep=0pt, anchor=west] (unit) at (1.2cm,0.2cm) {\scriptsize \textcolor{black}{\insertdate}};
+
+  \node[inner sep=0pt, anchor=west] (author) at (7.5cm,0.2cm) {\usebeamerfont{author}\setstretch{0.5}\parbox{9cm}{\textcolor{black}{\insertVenue}}};
+
+  \node[inner sep=0pt, anchor=east] (logo) at (\the\paperwidth,\the\paperheight-2.3cm) {\insertgroupLogo};
+  \node[inner sep=0pt, anchor=east] (title) at (\the\paperwidth,\the\paperheight-3cm)   {
+    \URLColor{goettingenBlue}{\insertAuthorURL}};
+
+  \end{tikzpicture}
+  )
+}
+
+\setbeamertemplate{footline}[text line]{
+\begin{beamercolorbox}[sep=0.5em,wd=\paperwidth,leftskip=0.2cm,rightskip=0.1cm]{footlinecolor}
+\insertauthor \hfill \insertVenue \hfill \insertframenumber\,/\,\ref{pg:lastpage}
+\end{beamercolorbox}
+}
+
+\newcommand{\slogant}[1]{\textbf{#1}} % \fontsize{5pt}{5pt}
+
+\useinnertheme{rectangles}
+
+\setbeamerfont{block title}{size={}}
+\setbeamercolor*{palette primary}{fg=white,bg=goettingenBlue}
+\setbeamercolor*{palette secondary}{fg=white,bg=goettingenGray}
+\setbeamercolor*{palette tertiary}{fg=black,bg=goettingenBlue}
+\setbeamercolor*{palette quaternary}{fg=white,bg=goettingenBlue}
+
+\setbeamercolor*{footlinecolor}{use=structure,fg=black,bg=goettingenGray}
+\setbeamercolor{frametitle}{fg=goettingenBlue}
+\setbeamercolor{enumerate item}{fg=goettingenBlue}
+\setbeamercolor{enumerate subitem}{fg=goettingenBlue}
+\setbeamercolor{enumerate subsubitem}{fg=goettingenBlue}
+\setbeamercolor{enumerate subsubsubitem}{fg=goettingenBlue}
+\setbeamercolor{item projected}{bg=goettingenBlue, fg=white}
+\setbeamercolor{block title}{fg=goettingenBlue}
+\setbeamertemplate{itemize item}{\color{goettingenBlue}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{goettingenBlue}$\blacktriangleright$}
+\setbeamertemplate{itemize subsubitem}{\color{goettingenBlue}\textbullet}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+%% setup of packages
+
+\hypersetup{colorlinks,linkcolor=goettingenBlue,urlcolor=goettingenBlue}
+\captionsetup{textfont=footnotesize}%labelformat=empty, format=plain, labelsep=none,
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	numberstyle=\ttfamily\tiny,
+	frame=single,
+	numbers=left,
+	numbersep=1em,
+	xleftmargin=2em,
+	language=C,
+	breaklines=true,
+	breakatwhitespace=true,
+	postbreak=\hbox{$\hookrightarrow$ },
+	showstringspaces=false,
+	tabsize=2
+}
+
+% useful commands and shortcuts
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
+% Macros to jump around:
+\newcommand{\returnSlide}[1]{
+\setbeamertemplate{footline}[text line]{
+\myfootline{\hyperlink{#1<1>}{\beamerreturnbutton{}}}
+}
+}
+
+\newcommand{\gotoSlide}[2]{
+\hfill \hyperlink{#1<1>}{\beamergotobutton{#2}}
+}
+
+\newcommand{\backupSlide}[2]{
+\setbeamertemplate{footline}[text line]{
+\myfootline{#1\,/\,#2}}
+}
+
+% FULL PAGE IMAGE
+
+\newcommand{\fullPageImage}[2]{
+\begin{frame}
+\frametitle{#1}
+\newgeometry{textwidth=12.65cm}
+\vspace*{-0.4cm}
+\hspace*{-1.05cm}
+\begin{minipage}{\textwidth}
+
+\begin{figure}
+  #2
+\end{figure}
+\end{minipage}
+\restoregeometry
+\end{frame}
+}
+
+\newcommand{\backupbegin}{
+  \appendix
+  \newcounter{framenumberappendix}
+  \setcounter{framenumberappendix}{\value{framenumber}}
+
+  \setbeamertemplate{button}{$\Leftarrow$}
+
+  \begin{frame}
+    \Huge {Appendix}
+  \end{frame}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
+
+\newcommand{\arrow}{\item[$\Rightarrow$]}
+
+\renewcommand{\emph}[1]{\textit{#1}}
+
+\newcommand{\sectionIntro}{
+\begin{frame}{Outline}
+  \tableofcontents[currentsection,hideothersubsections]%,subsectionstyle=hide/hide/hide
+\end{frame}
+}
+
+\newcommand{\sectionIntroHidden}{
+\begin{frame}{Outline}
+  \tableofcontents[currentsection,subsectionstyle=hide/hide/hide]
+\end{frame}
+}
+
+\newcommand{\HREFColor}[3]{\href{#2}{\color{#1}{#3}}}%
+\newcommand{\URLColor}[2]{\HREFColor{#1}{#2}{#2}}%
+\newcommand{\grayHREF}[3]{\href{#2}{\color{#1}{#3}}}%
+
+%% Make the slide very compact, typically use with [t] slides
+\newcommand{\compact}[0]{
+	\setlength{\medskipamount}{0.0pt}
+	\setlistspacing{1}{0.1ex}
+	\setlistspacing{2}{0.1ex}
+	\setlistspacing{3}{0.1ex}
+}
+
+\newcommand{\rarrow}{\item[\textcolor{red}{$\Rightarrow$}]}
+
+\newcommand{\vcenteredinclude}[2]{\begingroup
+\setbox0=\hbox{\includegraphics[#1]{#2}}%
+\parbox{\wd0}{\box0}\endgroup}
+
+\mode<all>
