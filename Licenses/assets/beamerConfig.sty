@@ -1,0 +1,331 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Config
+% LaTeX Template
+% Version 2.0 (2023-06-16)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+
+\PassOptionsToPackage{hyphens}{url}
+\RequirePackage{url}
+\RequirePackage{hyperref}
+\RequirePackage{tikz}
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{caption}
+\RequirePackage{subfig}
+\DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
+\RequirePackage{svg}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage[T1]{fontenc}
+\graphicspath{{fig/}{img/}}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{bera}
+\RequirePackage{setspace}
+\RequirePackage[official]{eurosym}
+\RequirePackage{multirow}
+\setlength{\marginparwidth}{2cm}
+\RequirePackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+% listing / code
+\RequirePackage{minted}
+\usemintedstyle{tango}
+% Box listing / code
+\RequirePackage{tcolorbox}
+\RequirePackage{mwe}
+\RequirePackage[style=verbose-inote,bibencoding=utf8,backend=biber,citestyle=authortitle]{biblatex}
+\setbeamertemplate{bibliography item}{} % Removes icon in bibliography
+\RequirePackage{csquotes} % For \enqoute{}
+
+\let\loadtheme\@empty
+
+\DeclareOption{DECICE}{
+	\renewcommand{\loadtheme}{
+		\RequirePackage{assets/beamerthemeDECICE}
+	}
+}
+
+\DeclareOption{GWDG}{
+	\renewcommand{\loadtheme}{
+		\RequirePackage{assets/beamerthemeGWDG}
+	}
+}
+
+\DeclareOption{HPS}{
+	\renewcommand{\loadtheme}{
+		\RequirePackage{assets/beamerthemeHPS}
+	}
+}
+
+\ProcessOptions\relax
+
+\loadtheme
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+}
+
+\newcommand{\source}[1]{\par\begin{textblock*}{12cm}(2cm,8cm)
+		\begin{beamercolorbox}[ht=0.5cm,right]{framesource}
+			\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \centering\tiny {#1}
+		\end{beamercolorbox}
+\end{textblock*}}
+
+\newsavebox{\picbox}
+
+\newcommand{\cutpic}[3]{%
+	\savebox{\picbox}{\includegraphics[width=#2]{#3}}%
+	\tikz\node [draw, rounded corners=#1, line width=0.1pt,%
+	color=transparent, minimum width=\wd\picbox,%
+	minimum height=\ht\picbox, path picture={%
+		\node at (path picture bounding box.center) {%
+			\usebox{\picbox}};%
+	}] {};}%
+
+\newcommand\resetsubfigs{\setcounter{sub\@captype}{0}}
+
+% Box listing / code style
+% These options will be applied to all `tcolorboxes`
+\tcbset{%
+	noparskip,
+	colback=gray!5, %background color of the box
+	colframe=gray!20, %color of frame and title background
+	coltext=black, %color of body text
+	coltitle=black, %color of title text
+	fonttitle=\tiny,
+	alerted/.style={coltitle=red,
+		colframe=gray!40},
+	example/.style={coltitle=black,
+		colframe=green!20,
+		colback=green!5},
+}
+
+\newcommand{\configuretitlepage}{
+	\title{\Large \mytitle}
+	\venue{\myvenue}
+	\date{\mydate}
+	\subtitle{\mysubtitle}
+	\authorURL{\myauthorurl}
+	\author{{\myauthor}}
+	\authorFooter{\myauthor \hspace{0.3cm}}
+	\institute{\myinstitute}
+	\groupLogo{\mygrouplogo}
+	\titleLogo{\mytitlelogo}
+}
+
+\mode<presentation>
+\beamer@compresstrue
+
+\setbeamertemplate{section in head/foot}
+{\color{colorBlue}\tiny \usebeamerfont{section in head/foot} \textbf{\insertsectionhead}}
+
+\setbeamertemplate{section in head/foot shaded}
+{\color{colorBlue}\tiny \tiny \usebeamerfont{section in head/foot}\insertsectionhead}
+
+\setbeamercolor*{mini frame}{fg=colorBlue,bg=white}
+
+\defbeamertemplate*{headline}{template}
+{
+	\begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{white}
+		\insertnavigation{\paperwidth}
+	\end{beamercolorbox}%
+	
+	\begin{tikzpicture}
+		\fill[left color=colorBlue, right color=colorBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);
+		\fill[color=colorBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
+	\end{tikzpicture}
+}%
+\setbeamertemplate{navigation symbols}{}
+
+
+\defbeamertemplate*{frametitle}{template}
+{%
+	\nointerlineskip%
+	\usebeamerfont{headline}%
+	\nointerlineskip%
+	\begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{empty}
+		\usebeamerfont*{frametitle}\insertframetitle%
+		\ifx\insertframesubtitle\@empty%
+		\strut\par%
+		\else
+		\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+		\fi%%
+		\usebeamerfont{headline}%
+	\end{beamercolorbox}%
+}
+\makeatletter
+
+\newcommand{\setlistspacing}[2]{\def\@ld{#1}\expandafter\def\csname
+	@list\romannumeral\@ld \endcsname{\leftmargin\csname
+		leftmargin\romannumeral\@ld \endcsname
+		\topsep    #2
+		\parsep    0\p@   \@plus\p@
+		\itemsep   #2}}
+
+% USEFUL definitions for the author onto the title page
+
+\newcommand\authorFooter[1]{\renewcommand\insertAuthorFooter{#1}}
+\newcommand\insertAuthorFooter{}
+
+\newcommand\authorURL[1]{\renewcommand\insertAuthorURL{#1}}
+\newcommand\insertAuthorURL{}
+
+\newcommand\slideNumber[1]{\renewcommand\insertSlideNumber{#1}}
+\newcommand\insertSlideNumber{\inserttotalframenumber}
+
+\newcommand\venue[1]{\renewcommand\insertVenue{#1}}
+\newcommand\insertVenue{}
+
+\newcommand\titleLogo[1]{\renewcommand\insertTitleLogo{#1}}
+\newcommand\insertTitleLogo{}
+
+\newcommand\titleLicense[1]{\renewcommand\insertTitleLicense{#1}}
+\newcommand\insertTitleLicense{}
+
+\newcommand\groupLogo[1]{\renewcommand\insertgroupLogo{#1}}
+\newcommand\insertgroupLogo{}
+
+\newcommand{\tiniest}{\@setfontsize{\tiniest}{5pt}{5pt}}
+
+\makeatother
+
+\newcommand{\srcsize}{\fontsize{7pt}{7pt}}
+\newcommand{\slogan}[1]{\srcsize \textbf{#1}}
+
+\applytitlepagetemplate
+
+\applyfooterlinetemplate
+
+\useinnertheme{rectangles}
+
+\setbeamerfont{block title}{size={}}
+\setbeamercolor*{palette primary}{fg=white,bg=colorBlue}
+\setbeamercolor*{palette secondary}{fg=white,bg=colorGray}
+\setbeamercolor*{palette tertiary}{fg=black,bg=colorBlue}
+\setbeamercolor*{palette quaternary}{fg=white,bg=colorBlue}
+
+\setbeamercolor*{footlinecolor}{use=structure,fg=black,bg=colorGray}
+\setbeamercolor{frametitle}{fg=colorBlue}
+\setbeamercolor{enumerate item}{fg=colorBlue}
+\setbeamercolor{enumerate subitem}{fg=colorBlue}
+\setbeamercolor{enumerate subsubitem}{fg=colorBlue}
+\setbeamercolor{enumerate subsubsubitem}{fg=colorBlue}
+\setbeamercolor{item projected}{bg=colorBlue, fg=white}
+\setbeamercolor{block title}{fg=colorBlue}
+\setbeamertemplate{itemize item}{\color{colorBlue}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{colorBlue}$\blacktriangleright$}
+\setbeamertemplate{itemize subsubitem}{\color{colorBlue}\textbullet}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+%% setup of packages
+
+\hypersetup{colorlinks,linkcolor=colorBlue,urlcolor=colorBlue}
+\captionsetup{textfont=footnotesize}
+
+% useful commands and shortcuts
+
+\newenvironment{changemargin}[2]{%
+	\begin{list}{}{%
+			\setlength{\topsep}{0pt}%
+			\setlength{\leftmargin}{#1}%
+			\setlength{\rightmargin}{#2}%
+			\setlength{\listparindent}{\parindent}%
+			\setlength{\itemindent}{\parindent}%
+			\setlength{\parsep}{\parskip}%
+		}%
+		\item[]}{\end{list}}
+
+
+% Macros to jump around:
+\newcommand{\returnSlide}[1]{
+	\setbeamertemplate{footline}[text line]{
+		\myfootline{\hyperlink{#1<1>}{\beamerreturnbutton{}}}
+	}
+}
+
+\newcommand{\gotoSlide}[2]{
+	\hfill \hyperlink{#1<1>}{\beamergotobutton{#2}}
+}
+
+\newcommand{\backupSlide}[2]{
+	\setbeamertemplate{footline}[text line]{
+		\myfootline{#1\,/\,#2}}
+}
+
+% FULL PAGE IMAGE
+
+\newcommand{\fullPageImage}[2]{
+	\begin{frame}
+		\frametitle{#1}
+		\newgeometry{textwidth=12.65cm}
+		\vspace*{-0.4cm}
+		\hspace*{-1.05cm}
+		\begin{minipage}{\textwidth}
+			
+			\begin{figure}
+				#2
+			\end{figure}
+		\end{minipage}
+		\restoregeometry
+	\end{frame}
+}
+
+\newcommand{\backupbegin}{
+	\appendix
+	\newcounter{framenumberappendix}
+	\setcounter{framenumberappendix}{\value{framenumber}}
+	
+	\setbeamertemplate{button}{$\Leftarrow$}
+	
+	\begin{frame}
+		\Huge {Appendix}
+	\end{frame}
+}
+
+\newcommand{\backupend}{
+	\addtocounter{framenumberappendix}{-\value{framenumber}}
+	\addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
+\newcommand{\arrow}{\item[$\Rightarrow$]}
+
+\newcommand{\sectionIntro}{
+	\begin{frame}{Outline}
+		\tableofcontents[currentsection,hideothersubsections]
+	\end{frame}
+}
+
+\newcommand{\sectionIntroHidden}{
+	\begin{frame}{Outline}
+		\tableofcontents[currentsection,subsectionstyle=hide/hide/hide]
+	\end{frame}
+}
+
+\newcommand{\HREFColor}[3]{\href{#2}{\color{#1}{#3}}}%
+\newcommand{\URLColor}[2]{\HREFColor{#1}{#2}{#2}}%
+\newcommand{\grayHREF}[3]{\href{#2}{\color{#1}{#3}}}%
+
+%% Make the slide very compact, typically use with [t] slides
+\newcommand{\compact}[0]{
+	\setlength{\medskipamount}{0.0pt}
+	\setlistspacing{1}{0.1ex}
+	\setlistspacing{2}{0.1ex}
+	\setlistspacing{3}{0.1ex}
+}
+
+\newcommand{\rarrow}{\item[\textcolor{red}{$\Rightarrow$}]}
+
+\newcommand{\vcenteredinclude}[2]{\begingroup
+	\setbox0=\hbox{\includegraphics[#1]{#2}}%
+	\parbox{\wd0}{\box0}\endgroup}
+
+\mode<all>
