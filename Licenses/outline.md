@@ -1,0 +1,32 @@
+# Outline Licensing
+
+- Learning Goals
+- Why you should care
+    - What happens if you dont
+    - What can you do if somebody doesn't have a LICENSE
+- Code Licenses
+    - Beginning slide: Explaining the categories
+        - public domain basically
+        - Ohne copyleft
+        - mit copyleft
+    - UNLICENSE and alike (CC0)
+        - unlicense as much as possible
+        - How much is possible
+        - WHat they save you from: Liability etc
+    - MIT/Apache/BSD?
+        - Specify what they allow
+        - apache/mit often dual licensed
+    - GPL2 and GPL3
+        - concept of copyleft
+        - The difference
+- Non-Code Licenses
+    - font license
+        - most common: SIL
+            - see the FAQ: <https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL-FAQ_web>
+        - otherwise people just also use apache2
+        - <https://developers.google.com/fonts/faq#can_i_use_any_font_in_a_commercial_product>
+    - documentation and other license
+        - Just focus on CC
+- If you need further help
+    - see slides
+- Conclusion

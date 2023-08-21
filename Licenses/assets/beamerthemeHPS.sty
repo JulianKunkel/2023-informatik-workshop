@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HPS Presentation Theme
+% LaTeX Template
+% Version 2.0 (2023-06-16)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\definecolor{colorBlue}{HTML}{064270}
+\definecolor{colorBlue2}{HTML}{1a9acb}
+\definecolor{colorBlue3}{HTML}{d7e5f4}
+\definecolor{colorGray}{HTML}{f2f2f2}
+
+\newcommand{\myfooterimage}{}
+\newcommand{\mygrouplogo}{\includegraphics[width=2cm]{hps-logo}}
+\newcommand{\mytitlelogo}{}
+
+\newcommand{\applyfooterlinetemplate}{
+	
+	\setbeamertemplate{footline}[text line]{
+		\begin{beamercolorbox}[sep=0.5em,wd=\paperwidth,leftskip=0.2cm,rightskip=0.1cm]{footlinecolor}
+			\insertauthor \hfill \insertVenue \hfill \insertframenumber\,/\,\ref{pg:lastpage}
+		\end{beamercolorbox}
+	}
+	
+}
+
+\newcommand{\applytitlepagetemplate}{
+
+	\defbeamertemplate*{title page}{customized}[1][]
+	{
+		\hspace*{-2cm}
+		\begin{tikzpicture}
+			\node[inner sep=0pt] (logo) at (3.5cm,\the\paperheight-0.8cm) {\includegraphics[width=4cm]{logo-goettingen}};
+			
+			\node[inner sep=0pt, anchor=west,text width=\the\paperwidth-1cm] (title) at (2cm,4.2cm) {\usebeamerfont{title}\Huge\textcolor{colorBlue}{\inserttitle}};
+			
+			\node[inner sep=0pt, anchor=west,text width=\the\paperwidth-2cm] (title) at (2cm,3.2cm) {\usebeamerfont{subtitle}%
+				\textcolor{gray}{\insertsubtitle}};
+			
+			\node[inner sep=0pt, anchor=west] (author) at (2cm,5.2cm) {\usebeamerfont{author}\setstretch{0.5}\parbox{9cm}{\textcolor{gray}{ \insertauthor }}};
+			
+			\fill[color=colorGray] (0,-1cm) rectangle (\the\paperwidth+2cm,0.5cm);
+			
+			\fill[left color=colorBlue, right color=colorBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);
+			
+			\fill[color=colorBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
+			
+			\node[inner sep=0pt, anchor=east] (author) at (\the\paperwidth+1cm,2.3cm) {\insertTitleLogo};
+			
+			\node[inner sep=0pt, anchor=east] (author) at (\the\paperwidth+0.5cm,0.5cm) {\tiny \insertTitleLicense};
+			
+			\node[inner sep=0pt, anchor=east] (unit) at (\the\paperwidth,\the\paperheight-0.9cm) {\textcolor{gray}{\insertinstitute}};
+			
+			\node[inner sep=0pt, anchor=west] (unit) at (1.2cm,0.2cm) {\scriptsize \textcolor{black}{\insertdate}};
+			
+			\node[inner sep=0pt, anchor=west] (author) at (7.5cm,0.2cm) {\usebeamerfont{author}\setstretch{0.5}\parbox{9cm}{\textcolor{black}{\insertVenue}}};
+			
+			\node[inner sep=0pt, anchor=east] (logo) at (\the\paperwidth,\the\paperheight-2.3cm) {\insertgroupLogo};
+			\node[inner sep=0pt, anchor=east] (title) at (\the\paperwidth,\the\paperheight-3cm)   {
+				\URLColor{colorBlue}{\insertAuthorURL}};
+			
+		\end{tikzpicture}
+		)
+	}
+
+}
