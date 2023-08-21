@@ -21,16 +21,16 @@
 \graphicspath{{.}{assets/}}
 
 % --- document configuration ---
-\newcommand{\mytitle}{My Title}
+\newcommand{\mytitle}{What every programmer should know about licenses}
 % Leave empty for no subtitle
-\newcommand{\mysubtitle}{My Subtitle}
-\newcommand{\myauthor}{My Author}
-\newcommand{\myauthorurl}{My Author URL}
-\newcommand{\myvenue}{My Venue}
+\newcommand{\mysubtitle}{Create usable code while abiding by the law}
+\newcommand{\myauthor}{Lars Quentin}
+\newcommand{\myauthorurl}{https://www.gwdg.de}
+\newcommand{\myvenue}{INFORMATIK 2023}
 % For example, use \today
-\newcommand{\mydate}{My Date}
+\newcommand{\mydate}{27.09.2023}
 % For example, Institute for Computer Science / GWDG
-\newcommand{\myinstitute}{My institute}
+\newcommand{\myinstitute}{GWDG / Campus-Institut Data Science}
 
 \configuretitlepage
 
@@ -46,18 +46,170 @@
 
 	% --- slides begin ---
 
-	\section{Section 1}
+	\section{Introduction}
 
-	\begin{frame}{Slide 1}
+	\begin{frame}{Learning Goals}
 		\begin{itemize}
-			\item
+			\item write me last
 		\end{itemize}
 	\end{frame}
 
-	\begin{frame}{Last Frame}
-		\label{pg:lastpage} % Label on last frame to get the page number for footer
-
+	\begin{frame}{Why you should care}
+    \begin{block}{What happens if you don't use a license? \cite{nolicense}}
+      \begin{itemize}
+        \item If a repository has no license, then \textbf{all rights are reserved}!
+        \item This means that normal copyright laws apply.
+        \item Therefore, nobody is allowed to:
+          \begin{itemize}
+            \item Copy
+            \item Modify
+            \item Distribute
+          \end{itemize}
+        \item If someone else contributes, this includes you!
+      \end{itemize}
+    \end{block}
+    \begin{center}
+      \Large If you want to share your code, you need a license!
+    \end{center}
 	\end{frame}
+
+  \section{Code Licenses}
+
+	\begin{frame}{Overview of Code Licenses}
+    Licenses can be divided into three categories:
+		\begin{itemize}
+      \item Public Domain-like
+        \begin{itemize}
+          \item The Unlicense
+        \end{itemize}
+			\item Permissive
+        \begin{itemize}
+          \item MIT
+          \item Apache 2.0
+          \item BSD-3-Clause
+        \end{itemize}
+      \item Copyleft
+        \begin{itemize}
+          \item GPL
+        \end{itemize}
+		\end{itemize}
+	\end{frame}
+
+  \begin{frame}{Public Domain (Gemeinfreiheit)}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+    \begin{itemize}
+      \item Releases code into the public domain
+      \item Thus, everybody can
+        \begin{itemize}
+          \item Use (commercially)
+          \item Modify
+          \item Distribute / Copy / Publish
+          \item Sell
+        \end{itemize}
+      \item No attribution required
+      \item Changes can be kept closed-source
+      \item Example: The Unlicense \cite{unlicense}
+    \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \includegraphics[width=.5\textwidth]{./assets/unlicense.png}
+          \caption{Unlicense logo \cite{unlicense}}
+        \end{figure}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}{Permissive Licenses}
+    \begin{itemize}
+      \item Sometimes also called BSD-like \cite{guide}
+      \item Also allow everybody to
+        \begin{itemize}
+          \item Use (commercially)
+          \item Modify
+          \item Distribute / Copy / Publish
+          \item Sell
+        \end{itemize}
+      \item Requires attribution, at least in the source code
+      \item Example licenses:
+        \begin{itemize}
+          \item MIT: Most commonly used
+          \item Apache 2.0 \cite{apache2}: Like MIT, but with a patent clause \cite{apachefaq}
+            \begin{itemize}
+              \item If you are a contributor with a relevant patent, you grant a license to the patent
+            \end{itemize}
+          \item BSD-3: Similar to MIT but adds a no-endorsement clause
+            \begin{itemize}
+              \item If you use our tool, don't use us to endorse or promote your product
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Copyleft Licenses}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item For Code: Gnu Public Licenses (GPL)
+          \item Allow for any usage and modification
+          \item Source has to be made available
+          \item Modifications need to have same license
+          \item Example: GPLv3
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{Four Freedoms \cite{freedoms}}
+          \begin{enumerate}
+            \item Run the program for any purpose
+            \item Be able to the source code
+            \item Distribute the program as you wish
+            \item Distribute your modified versions
+          \end{enumerate}
+        \end{block}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+\section{Non-Code Licenses}
+
+	\begin{frame}{Font Licenses}
+		\begin{itemize}
+			\item item
+		\end{itemize}
+	\end{frame}
+
+  \begin{frame}{Creative Commons Licenses}
+		\begin{itemize}
+			\item Explain the mapping
+      \item public comain == CC0
+      \item CC-BY == permissive
+      \item CC-BY-SA == copyleft
+		\end{itemize}
+	\end{frame}
+
+
+  \section{Conclusion}
+
+  \begin{frame}{Conclusion}
+		\label{pg:lastpage} % Label on last frame to get the page number for footer
+    \begin{block}{Summary}
+      \begin{itemize}
+        \item Write me last, together with learning goals
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{If you need further help}
+      \begin{itemize}
+          % \href for functionality, \url for formatting
+        \item \href{https://choosealicense.com/}{\url{https://choosealicense.com}}
+        \item \href{https://tldrlegal.com/}{\url{https://tldrlegal.com}}
+        \item \href{https://www.gnu.org/licenses/license-list.en.html}{\url{https://www.gnu.org/licenses/license-list.en.html}}
+        \item \href{https://opensource.org/licenses}{\url{https://opensource.org/licenses}}
+        \item \href{https://creativecommons.org/}{\url{https://creativecommons.org/}}
+      \end{itemize}
+    \end{block}
+  \end{frame}
 
 	\begin{frame}{References}
 		% References slide in appendix
