@@ -1,0 +1,17 @@
+Hide your secrets
+
+	Sensitive data in git
+
+		Security risk in private repositories -> je oefter das repo gecloned wird, desto oefter werden die secret files dupliziert und liegen dann unverschluesselt auf der Festplatte
+		
+	Removing sensitive data
+
+	Encrupt sensitive data
+
+Handling of Issues
+
+Consistency with Continuous Integration
+
+Documentation 
+
+Promote your code
