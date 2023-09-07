@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Template
+% LaTeX Template
+% Version 2.2 (2023-07-17)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[compress,aspectratio=169]{beamer}
+
+% make sure the theme and config files are on this path
+\usepackage[GI]{assets/beamerConfig}
+
+% Used to create mindmaps
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+
+
+\addbibresource{ref.bib}
+\graphicspath{{.}{assets/}}
+
+% --- document configuration ---
+\newcommand{\mytitle}{Going public}
+% Leave empty for no subtitle
+\newcommand{\mysubtitle}{Tips for publishing your own code}
+\newcommand{\myauthor}{Marc-Philipp Knechtle}
+\newcommand{\myauthorurl}{}
+\newcommand{\myvenue}{Informatik 2023}
+% For example, use \today
+\newcommand{\mydate}{\today}
+% For example, Institute for Computer Science / GWDG
+\newcommand{\myinstitute}{JMU Würzburg}
+
+\configuretitlepage
+
+\begin{document}
+
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+
+	\begin{frame}[t]{Table of contents}
+		\tableofcontents[subsectionstyle=hide/hide]
+	\end{frame}
+
+	% --- slides begin ---
+
+	\section{Hide your secrets!}
+
+		\begin{frame}{Sensitive data in git}
+			\begin{itemize}
+				\item Problem: (Accidental) commits of secrets
+				\item e.g. passwords, application secret keys, OAuth secret keys
+				\item The file is still accessible in history, even if the original file was deleted
+				\item Security risk, even in private repositories
+			\end{itemize}
+		
+		% asdf \cite{github2023removing}
+		
+		\end{frame}
+		
+		\begin{frame}{Removing sensitive data}
+			This slide can show the process of removing the private data if a practical exercise is desired
+		
+		\end{frame}
+		
+		\begin{frame}{Encrypt sensitive data}
+		
+			\begin{itemize}
+				\item github enrypted secrets
+				\item git-secret
+				\item technology specific encyption tool (e.g. ansible-vault)
+			\end{itemize}
+		
+		\end{frame}
+
+	
+	\section{Creating a healthy community}
+		\begin{frame}{Points of interaction with the community}
+			\begin{center}
+			\begin{tikzpicture}[grow cyclic, text width=2cm, align=flush center, level 1/.style={level distance=2cm,sibling angle=90}]
+				\node{\textbf{Interaction Points}}
+				child{ node {Pull Requests}}
+				child{ node {Issues}}
+				child{ node {community-specific forum}}		
+				;
+			\end{tikzpicture}
+			\end{center}
+		
+		\end{frame}
+	
+		\begin{frame}{Code of Conduct}
+			\begin{itemize}
+				\item Goal: healthy, constructive community behaviour
+				\item \texttt{CODE\textunderscore OF\textunderscore CONDUCT} file
+				\item e.g. Contributor Covenant \footnote{https://www.contributor-covenant.org/}, Django Code of Conduct \footnote{\url{https://www.djangoproject.com/conduct/}}
+			\end{itemize}				
+		\end{frame}
+	
+	\section{Consistency with Continuous Integration}	
+		\begin{frame}
+			\begin{figure}
+			\includegraphics[width=10cm]{assets/ci-overview.png}
+			\end{figure}
+		
+		\end{frame}
+		
+		\begin{frame}[Practice: Github Actions]
+			\begin{itemize}
+				\item asdf
+			\end{itemize}
+		\end{frame}
+		
+	\section{Documentation}
+		\begin{frame}{Documentation}
+			This was included in my task description, but is also topic of the work of @Nico. Should I include this in my presentation?
+		
+		\end{frame}
+	
+	\section{Promote your code}
+	
+		\begin{frame}{Ideas for promoting your code}
+		
+			\begin{itemize}
+				\item asdf
+			
+			\end{itemize}
+			
+		\end{frame}
+	
+		
+		\begin{frame}{References}
+			% References slide in appendix
+			\renewcommand*{\bibfont}{\normalfont\scriptsize}
+			\printbibliography[heading=none]
+			\label{pg:lastpage} % Label on the last frame to get the page number on the footer
+		\end{frame}
+
+\end{document}
