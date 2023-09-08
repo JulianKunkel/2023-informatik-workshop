@@ -340,7 +340,7 @@
 \newcommand{\rarrow}{\item[\textcolor{red}{$\Rightarrow$}]}
 
 \newcommand{\vcenteredinclude}[2]{\begingroup
-	\setbox0=\hbox{\includegraphics[#1]{#2}}%
+	\setbox0=\hbox{\includegraphics[#1, bb=0 0 0 0]{#2}}%
 	\parbox{\wd0}{\box0}\endgroup}
 
 \mode<all>

@@ -1,8 +1,12 @@
+* Bei der Präsentation soll es um die Schritte zur veröffentlichung des eigenen codes gehen
+
+
 Hide your secrets
 
 	Sensitive data in git
-
-		Security risk in private repositories -> je oefter das repo gecloned wird, desto oefter werden die secret files dupliziert und liegen dann unverschluesselt auf der Festplatte
+		* Was für Arten von Secrets könnten im Version Control System landen die man da nicht drinnen haben will?
+		* Was ist das besondere Problem darin die Daten in Git zu haben?  
+		* Security risk in private repositories -> je oefter das repo gecloned wird, desto oefter werden die secret files dupliziert und liegen dann unverschluesselt auf der Festplatte
 		
 	Removing sensitive data
 

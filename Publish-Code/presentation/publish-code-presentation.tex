@@ -53,28 +53,32 @@
 		\begin{frame}{Sensitive data in git}
 			\begin{itemize}
 				\item Problem: (Accidental) commits of secrets
-				\item e.g. passwords, application secret keys, OAuth secret keys
+				\item e.g. passwords, application secret keys, OAuth secret keys, SSH keys
 				\item The file is still accessible in history, even if the original file was deleted
 				\item Security risk, even in private repositories
-			\end{itemize}
-		
+			\end{itemize}	
 		% asdf \cite{github2023removing}
-		
 		\end{frame}
-		
+
 		\begin{frame}{Removing sensitive data}
-			This slide can show the process of removing the private data if a practical exercise is desired
-		
+			\begin{itemize}
+				\item git filter-repo
+				\item BFG Repo-Cleaner
+			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}{Encrypt sensitive data}
-		
+			Methods for encrypting and storing sensitive data:
 			\begin{itemize}
+				\item 	Why shouldn't i store the secrets separate from the repository?
+				\item 	Methods for encrypting and storing sensitive data:
+						\begin{itemize}
+							\item asdf
+						\end{itemize}
 				\item github enrypted secrets
 				\item git-secret
 				\item technology specific encyption tool (e.g. ansible-vault)
 			\end{itemize}
-		
 		\end{frame}
 
 	
@@ -100,7 +104,7 @@
 			\end{itemize}				
 		\end{frame}
 	
-	\section{Consistency with Continuous Integration}	
+	\section{Consistency achieved with continuous integration}	
 		\begin{frame}
 			\begin{figure}
 			\includegraphics[width=10cm]{assets/ci-overview.png}
