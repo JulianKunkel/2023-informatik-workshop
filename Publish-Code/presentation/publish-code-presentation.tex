@@ -70,14 +70,13 @@
 		\begin{frame}{Encrypt sensitive data}
 			Methods for encrypting and storing sensitive data:
 			\begin{itemize}
-				\item 	Why shouldn't i store the secrets separate from the repository?
+				\item 	Why shouldn't I store the secrets separate from the repository?
 				\item 	Methods for encrypting and storing sensitive data:
 						\begin{itemize}
-							\item asdf
+							\item git-secret CLI 
+							\item github encrypted secrets
+							\item technology specific encryption tool (e.g. ansible-vault)
 						\end{itemize}
-				\item github enrypted secrets
-				\item git-secret
-				\item technology specific encyption tool (e.g. ansible-vault)
 			\end{itemize}
 		\end{frame}
 
@@ -98,14 +97,16 @@
 	
 		\begin{frame}{Code of Conduct}
 			\begin{itemize}
+				\item Content: set of rules, with norms, responsibilities and proper parties
+				\item defines the actions of a single person in a organisation
 				\item Goal: healthy, constructive community behaviour
-				\item \texttt{CODE\textunderscore OF\textunderscore CONDUCT} file
+				\item \texttt{CODE\textunderscore OF\textunderscore CONDUCT} file (in the git repository)
 				\item e.g. Contributor Covenant \footnote{https://www.contributor-covenant.org/}, Django Code of Conduct \footnote{\url{https://www.djangoproject.com/conduct/}}
 			\end{itemize}				
 		\end{frame}
 	
 	\section{Consistency achieved with continuous integration}	
-		\begin{frame}
+		\begin{frame}{Continuous Integration overview}
 			\begin{figure}
 			\includegraphics[width=10cm]{assets/ci-overview.png}
 			\end{figure}

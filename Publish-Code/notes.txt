@@ -2,7 +2,6 @@
 
 
 Hide your secrets
-
 	Sensitive data in git
 		* Was für Arten von Secrets könnten im Version Control System landen die man da nicht drinnen haben will?
 		* Was ist das besondere Problem darin die Daten in Git zu haben?  
@@ -10,11 +9,23 @@ Hide your secrets
 		
 	Removing sensitive data
 
-	Encrupt sensitive data
+	Encrypt sensitive data
+		* Vorstellung der technologien wie sensitive data gespeichert werden kann
+		* Wie funktionieren die jeweiligen Tools intern?
 
-Handling of Issues
+		* Verweisen auf die Uebung wo man die Tools anwenden kann.
+
+Creating a healthy community
+	Points of interaction with the community
+
+	Code of Conduct
+		Contributer Covenant: special code of conduct for opensource projects
+			* famous adopters = swift, tensorflow, golang ...
 
 Consistency with Continuous Integration
+	Continuous Integration overview
+		* Wer hat  schonmal von CI gehoert, oder von DevOps
+		* Ziel: Time to Release minimieren 
 
 Documentation 
 
