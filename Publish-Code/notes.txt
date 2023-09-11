@@ -27,6 +27,9 @@ Consistency with Continuous Integration
 		* Wer hat  schonmal von CI gehoert, oder von DevOps
 		* Ziel: Time to Release minimieren 
 
+	Github Actions
+		
+
 Documentation 
 
 Promote your code
