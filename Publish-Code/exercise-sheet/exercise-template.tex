@@ -51,16 +51,18 @@ This sheet covers additional exercise material for the presentation about publis
 			\item create a venv inside this repository
 			\item activate the venv
 			\item install all dependencies
-			\item download the \texttt{bfg} repo cleaner \href{https://rtyley.github.io/bfg-repo-cleaner/}{here}
+			\item download the \texttt{bfg repo cleaner} \href{https://rtyley.github.io/bfg-repo-cleaner/}{here}
 		\end{enumerate}
 
-	\subsection*{Task part 2}
-	\begin{enumerate}
-		\item \texttt{echo "Hello World"}
-	\end{enumerate}
+	\subsection*{Removing secrets}
+		\begin{enumerate}
+			\item Remove the \texttt{ssh} keys from the history using the \texttt{bfg repo cleaner}
+			\item Find the password which was used for the request in \texttt{fetch-weather-data.py}
+			\item Remove this passphrase from the history using the \texttt{bfg repo cleaner}
+		\end{enumerate}
 
-	\begin{hints} % Give tips or hints that are helpful
-  		\item 
+	\begin{hints}
+  		\item 	You can have a look at the commit history to find the passphrase which was accidentally commited.
 	\end{hints}
 
 	% \begin{submissions}{submission-folder} % The expected form of the results of completing the task
@@ -68,7 +70,8 @@ This sheet covers additional exercise material for the presentation about publis
 	%\end{submissions}
 
 	\begin{literature} % Further Reading
-  		\item \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository}{removing sensitive data from a repository}
+  		\item \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository}{github: removing sensitive data from a repository}
+  		\item \href{https://rtyley.github.io/bfg-repo-cleaner/}{bfg repo cleaner: examples}
 	\end{literature}
 
 
