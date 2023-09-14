@@ -37,47 +37,49 @@
 \makesheetheader
 
 \section*{Exercise Introduction}
-What to expect and what this sheet will cover.
+This sheet covers additional exercise material for the presentation about publishing your own open source code.
 
 \tableofcontents
 
 \bigskip
 
-\task{Task}{10}
+\task{Hide your secrets}{10}
 
-\subsection*{Task Part 1}
+	\subsection*{Task Preparation}
+		\begin{enumerate}
+			\item clone \href{https://github.com/marc-philipp-knechtle/2023-informatik-workshop-publish-code}{2023-informatik-workshop-publish-code}
+			\item create a venv inside this repository
+			\item activate the venv
+			\item install all dependencies
+			\item download the \texttt{bfg} repo cleaner \href{https://rtyley.github.io/bfg-repo-cleaner/}{here}
+		\end{enumerate}
 
-\begin{enumerate}
-	\item \cmd{echo "Hello World"}
-\end{enumerate}
+	\subsection*{Task part 2}
+	\begin{enumerate}
+		\item \texttt{echo "Hello World"}
+	\end{enumerate}
 
-\subsection*{Task part 2}
+	\begin{hints} % Give tips or hints that are helpful
+  		\item 
+	\end{hints}
 
-\begin{enumerate}
-	\item \texttt{echo "Hello World"}
-\end{enumerate}
+	% \begin{submissions}{submission-folder} % The expected form of the results of completing the task
+	%	\submission{}findings.txt}{Write about X (at least 100 words).}
+	%\end{submissions}
 
-\begin{hints} % Give tips or hints that are helpful
-  \item 
-\end{hints}
-
-\begin{submissions}{submission-folder} % The expected form of the results of completing the task
-	\submission{findings.txt}{Write about X (at least 100 words).}
-\end{submissions}
-
-\begin{literature} % Further Reading
-  \item 
-\end{literature}
+	\begin{literature} % Further Reading
+  		\item \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository}{removing sensitive data from a repository}
+	\end{literature}
 
 
-\begin{tcolorbox}[title=https-server.py] % Include code blocks like this
-	\inputminted{Python}{http-server.py}
-	\embedfile{http-server.py} % Use embedfile package to enable download of the code
-\end{tcolorbox}
-\marginpar{\attachfile[appearance=false,icon=Paperclip,mimetype=text/plain]{http-server.py}} % Just in case someone's PDF reader has better support for attached files
+	\begin{tcolorbox}[title=https-server.py] % Include code blocks like this
+		\inputminted{Python}{http-server.py}
+		\embedfile{http-server.py} % Use embedfile package to enable download of the code
+	\end{tcolorbox}
+	\marginpar{\attachfile[appearance=false,icon=Paperclip,mimetype=text/plain]{http-server.py}} % Just in case someone's PDF reader has better support for attached files
 
-\hardtask{Hard Task} % More difficult alternative to above task, uses the same time and number as the respective task
+% \hardtask{Hard Task} % More difficult alternative to above task, uses the same time and number as the respective task
 
-\extraTask{Extra Task}{5} % Additional tasks that are optional
+% \extraTask{Extra Task}{5} % Additional tasks that are optional
 
 \end{document}
