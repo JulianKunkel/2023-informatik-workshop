@@ -38,7 +38,7 @@
 % Box listing / code
 \RequirePackage{tcolorbox}
 \RequirePackage{mwe}
-\RequirePackage[style=verbose-inote,bibencoding=utf8,backend=biber,citestyle=authortitle]{biblatex}
+\RequirePackage[style=numeric,bibencoding=utf8,backend=biber,sorting=none]{biblatex}
 \setbeamertemplate{bibliography item}{} % Removes icon in bibliography
 \usepackage{xpatch}
 \xapptobibmacro{cite}{\setunit{\nametitledelim}\printfield{year}}{}{}
