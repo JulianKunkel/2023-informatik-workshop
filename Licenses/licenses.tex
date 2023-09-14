@@ -13,7 +13,7 @@
 
 % make sure the theme and config files are on this path
 % uncomment the required theme setting
-\usepackage[HPS]{assets/beamerConfig}
+\usepackage[GI]{assets/beamerConfig}
 %\usepackage[GWDG]{assets/beamerConfig}
 %\usepackage[DECICE]{assets/beamerConfig}
 
@@ -25,7 +25,7 @@
 % Leave empty for no subtitle
 \newcommand{\mysubtitle}{Create usable code while abiding by the law}
 \newcommand{\myauthor}{Lars Quentin}
-\newcommand{\myauthorurl}{https://www.gwdg.de}
+\newcommand{\myauthorurl}{}
 \newcommand{\myvenue}{INFORMATIK 2023}
 % For example, use \today
 \newcommand{\mydate}{27.09.2023}
@@ -168,11 +168,57 @@
         \begin{block}{Four Freedoms \cite{freedoms}}
           \begin{enumerate}
             \item Run the program for any purpose
-            \item Be able to the source code
+            \item Be able to read the source code
             \item Distribute the program as you wish
             \item Distribute your modified versions
           \end{enumerate}
         \end{block}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}{Copyleft Implications}
+    \begin{itemize}
+      \item Without copyleft, open source projects can be forked to closed source
+        \begin{itemize}
+          \item Chromium to Google Chrome (BSD-3)
+        \end{itemize}
+      \item Without copyleft, people could sell your software
+      \item With copyleft, less people can use your software
+      \item If React (most popular Web Framework) were GPLv3, those would be open source:
+        \begin{itemize}
+          \item Facebook
+          \item Netflix
+          \item Uber
+          \item Airbnb
+          \item Dropbox
+        \end{itemize}
+      \item Big projects often need funding, getting funding for open source is hard
+        \begin{itemize}
+          \item Many succeed, especially in IT infrastructure
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+\section{How to Add a License}
+
+  \begin{frame}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{How to Add a License}
+          \begin{enumerate}
+            \item Find License Fulltext
+            \item Add name and year if required
+            \item Save as \texttt{LICENSE} file in repository
+            \item Commit and push to remote
+          \end{enumerate}
+        \end{block}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \includegraphics[width=\textwidth]{./assets/mit.png}
+          \caption{MIT license from OSI \cite{MITOCI}}
+        \end{figure}
       \end{column}
     \end{columns}
   \end{frame}
@@ -226,7 +272,6 @@
       \end{column}
     \end{columns}
 	\end{frame}
-
 
   \section{Conclusion}
 

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Config
 % LaTeX Template
-% Version 2.0 (2023-06-16)
+% Version 2.2 (2023-07-17)
 %
 % This template was adapted by:
 % Jonathan Decker (jonathan.decker@uni-goettingen.de)
@@ -38,28 +38,21 @@
 % Box listing / code
 \RequirePackage{tcolorbox}
 \RequirePackage{mwe}
-%\RequirePackage[style=verbose-inote,bibencoding=utf8,backend=biber,citestyle=authortitle]{biblatex}
-\RequirePackage[style=verbose-inote,bibencoding=utf8,backend=biber,citestyle=numeric,sorting=none]{biblatex}
+\RequirePackage[style=numeric,bibencoding=utf8,backend=biber,sorting=none]{biblatex}
 \setbeamertemplate{bibliography item}{} % Removes icon in bibliography
+\usepackage{xpatch}
 \RequirePackage{csquotes} % For \enqoute{}
 
 \let\loadtheme\@empty
 
-\DeclareOption{DECICE}{
-	\renewcommand{\loadtheme}{
-		\RequirePackage{assets/beamerthemeDECICE}
-	}
-}
+\newcommand{\applyextrasettings}{}
 
-\DeclareOption{GWDG}{
-	\renewcommand{\loadtheme}{
-		\RequirePackage{assets/beamerthemeGWDG}
-	}
-}
+\def\disableheader{}
+\def\loadextrasettings{}
 
-\DeclareOption{HPS}{
+\DeclareOption{GI}{
 	\renewcommand{\loadtheme}{
-		\RequirePackage{assets/beamerthemeHPS}
+		\RequirePackage{assets/beamerthemeGI}
 	}
 }
 
@@ -123,27 +116,7 @@
 \mode<presentation>
 \beamer@compresstrue
 
-\setbeamertemplate{section in head/foot}
-{\color{colorBlue}\tiny \usebeamerfont{section in head/foot} \textbf{\insertsectionhead}}
-
-\setbeamertemplate{section in head/foot shaded}
-{\color{colorBlue}\tiny \tiny \usebeamerfont{section in head/foot}\insertsectionhead}
-
-\setbeamercolor*{mini frame}{fg=colorBlue,bg=white}
-
-\defbeamertemplate*{headline}{template}
-{
-	\begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{white}
-		\insertnavigation{\paperwidth}
-	\end{beamercolorbox}%
-	
-	\begin{tikzpicture}
-		\fill[left color=colorBlue, right color=colorBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);
-		\fill[color=colorBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
-	\end{tikzpicture}
-}%
 \setbeamertemplate{navigation symbols}{}
-
 
 \defbeamertemplate*{frametitle}{template}
 {%
@@ -160,6 +133,7 @@
 		\usebeamerfont{headline}%
 	\end{beamercolorbox}%
 }
+
 \makeatletter
 
 \newcommand{\setlistspacing}[2]{\def\@ld{#1}\expandafter\def\csname
@@ -199,11 +173,9 @@
 \newcommand{\srcsize}{\fontsize{7pt}{7pt}}
 \newcommand{\slogan}[1]{\srcsize \textbf{#1}}
 
-\applytitlepagetemplate
-
-\applyfooterlinetemplate
-
 \useinnertheme{rectangles}
+
+\ifx\loadextrasettings\empty
 
 \setbeamerfont{block title}{size={}}
 \setbeamercolor*{palette primary}{fg=white,bg=colorBlue}
@@ -226,6 +198,47 @@
 \setbeamercolor*{titlelike}{parent=palette primary}
 \setbeamercolor*{separation line}{}
 \setbeamercolor*{fine separation line}{}
+
+\else
+
+\applyextrasettings
+
+\fi
+
+\applytitlepagetemplate
+
+\applyfooterlinetemplate
+
+\ifx\disableheader\empty
+
+\setbeamercolor*{mini frame}{fg=colorBlue,bg=white}
+
+\setbeamertemplate{section in head/foot}
+{\color{colorBlue}\tiny \usebeamerfont{section in head/foot} \textbf{\insertsectionhead}}
+
+\setbeamertemplate{section in head/foot shaded}
+{\color{colorBlue}\tiny \tiny \usebeamerfont{section in head/foot}\insertsectionhead}
+
+\defbeamertemplate*{headline}{template}
+{
+	\begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{white}
+		\insertnavigation{\paperwidth}
+	\end{beamercolorbox}%
+	
+	\begin{tikzpicture}
+		\fill[left color=colorBlue, right color=colorBlue2] (0,\the\paperheight-1.5cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.45cm);
+		\fill[color=colorBlue3] (\the\paperwidth-5cm,\the\paperheight-1.6cm) rectangle (\the\paperwidth+2cm,\the\paperheight-1.55cm);
+	\end{tikzpicture}
+}%
+
+\else
+
+\makeatletter
+\setbeamertemplate{headline}[default]
+\addtobeamertemplate{frametitle}{\vspace*{0.2cm}}{\vspace*{0.2cm}}
+\makeatother
+
+\fi
 
 %% setup of packages
 
