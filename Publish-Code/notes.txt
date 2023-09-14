@@ -27,7 +27,10 @@ Consistency with Continuous Integration
 		* Wer hat  schonmal von CI gehoert, oder von DevOps
 		* Ziel: Time to Release minimieren 
 
+		* Begriffe die hier auf der Folie genannt sind werden oefter verwendet, wichtig ist die Abgrenzung dieser Begriffe
+
 	Github Actions
+		
 		
 
 Documentation 
