@@ -64,23 +64,52 @@
 	\begin{frame}{Why you should care}
     \begin{block}{What happens if you don't use a license? \cite{nolicense}}
       \begin{itemize}
-        \item If a repository has no license, then \textbf{all rights are reserved}!
-        \item This means that normal copyright laws apply.
+        \item If a file has no license, then \textbf{all rights are reserved}!
+          \pause
+        \item This means that international copyright laws apply.
+          \pause
         \item Therefore, nobody is allowed to:
           \begin{itemize}
+            \item \textbf{Use}
             \item Copy
             \item Modify
             \item Distribute
           \end{itemize}
-        \item If someone else contributes, this includes you!
       \end{itemize}
     \end{block}
     \begin{center}
-      \Large If you want to share your code, you need a license!
+      \Large If you want your code to be used, you need a license!
     \end{center}
 	\end{frame}
 
   \section{Code Licenses}
+
+  \begin{frame}{Rule of Thumbs}
+    \pause
+    \begin{block}{1. Don't invent your own licenses}
+      \begin{itemize}
+        \item They can be legally invalid
+        \item They can have unexpected consequences:
+          \begin{itemize}
+            \item Examples: BSD No-Nuclear, Anti-996, Beerware
+          \end{itemize}
+        \item There is a good license for everything
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{2. If unsure, start with a more restrictive license}
+      \begin{itemize}
+        \item You can always make the software less restrictive.\\
+        \item You can't make previous commits more restrictive...
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{3. Don't think about licenses, think about your goals}
+      \begin{itemize}
+        \item Which goal do you want to acomplish?
+      \end{itemize}
+    \end{block}
+  \end{frame}
 
 	\begin{frame}{Overview of Code Licenses}
     Licenses can be divided into three categories:
@@ -95,7 +124,11 @@
           \item Apache 2.0
           \item BSD-3-Clause
         \end{itemize}
-      \item Copyleft
+      \item Weak Copyleft
+        \begin{itemize}
+          \item LGPL
+        \end{itemize}
+      \item Strong Copyleft
         \begin{itemize}
           \item GPL
         \end{itemize}
@@ -107,16 +140,16 @@
       \begin{column}{0.5\textwidth}
     \begin{itemize}
       \item Releases code into the public domain
-      \item Thus, everybody can
+      \item Thus, everybody can do everything the copyright holder can. Including
         \begin{itemize}
           \item Use (commercially)
-          \item Modify
+          \item Modify (keeping the modifications private)
           \item Distribute / Copy / Publish
           \item Sell
         \end{itemize}
       \item No attribution required
       \item Changes can be kept closed-source
-      \item Example: The Unlicense \cite{unlicense}
+      \item Note that public domain \textbf{is not a license}.
     \end{itemize}
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -131,14 +164,13 @@
   \begin{frame}{Permissive Licenses}
     \begin{itemize}
       \item Sometimes also called BSD-like \cite{guide}
-      \item Also allow everybody to
-        \begin{itemize}
-          \item Use (commercially)
-          \item Modify
-          \item Distribute / Copy / Publish
-          \item Sell
-        \end{itemize}
-      \item Requires attribution, at least in the source code
+      \item Thus, everybody can do everything the copyright holder can. Including
+      \item Only requirements are to mention the following three:
+        \begin{enumerate}
+          \item The copyright holder
+          \item The license text
+          \item liability disclaimer
+        \end{enumerate}
       \item Example licenses:
         \begin{itemize}
           \item MIT: Most commonly used
@@ -154,13 +186,14 @@
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Copyleft Licenses}
+  \begin{frame}{Strong Copyleft Licenses}
     \begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{itemize}
           \item Allow for any usage and modification
           \item Source has to be made available
           \item Modifications need to have same license
+          \item Changes have to be contributed back!
           \item Example: GPLv3
         \end{itemize}
       \end{column}
@@ -177,25 +210,46 @@
     \end{columns}
   \end{frame}
 
+  \begin{frame}{Strong vs Weak Copyleft}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{Strong: GPL}
+          \begin{itemize}
+            \item Every software linking GPL libraries have to be GPL.
+          \end{itemize}
+        \end{block}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{Weak: LGPL}
+          \begin{itemize}
+            \item Only changes to your library have to be LGPL.
+          \end{itemize}
+        \end{block}
+      \end{column}
+    \end{columns}
+    {
+      \begin{center}
+        \Large GPL requires that the full software is open source!
+      \end{center}
+    }
+  \end{frame}
+
   \begin{frame}{Copyleft Implications}
     \begin{itemize}
       \item Without copyleft, open source projects can be forked to closed source
         \begin{itemize}
           \item Chromium to Google Chrome (BSD-3)
         \end{itemize}
+      \item Copyleft requires all changes to be made public as well
       \item Without copyleft, people could sell your software
-      \item With copyleft, less people can use your software
-      \item If React (most popular Web Framework) were GPLv3, those would be open source:
+      \item With copyleft, less companies will use your software
+      \item If React (most popular Web Framework) were GPLv3, those companies would not use it:
         \begin{itemize}
           \item Facebook
           \item Netflix
           \item Uber
           \item Airbnb
           \item Dropbox
-        \end{itemize}
-      \item Big projects often need funding, getting funding for open source is hard
-        \begin{itemize}
-          \item Many succeed, especially in IT infrastructure
         \end{itemize}
     \end{itemize}
   \end{frame}
@@ -207,10 +261,16 @@
       \begin{column}{0.5\textwidth}
         \begin{block}{How to Add a License}
           \begin{enumerate}
-            \item Find License Fulltext
+            \item Find License Fulltext: \url{https://spdx.dev/}
             \item Add name and year if required
+              \begin{itemize}
+                \item Update the year as long as it is maintained
+              \end{itemize}
             \item Save as \texttt{LICENSE} file in repository
-            \item Commit and push to remote
+            \item Add license notice and Copyright holder to every file!
+              \begin{itemize}
+                \item At least SPDX-Identifier
+              \end{itemize}
           \end{enumerate}
         \end{block}
       \end{column}
@@ -224,6 +284,20 @@
   \end{frame}
 
 \section{Non-Code Licenses}
+
+  \begin{frame}{What else needs a license}
+    Short answer: Everything!\\
+    \pause
+    Including:
+    \begin{itemize}
+      \item Images
+      \item Audio, Video
+      \item Fonts
+      \item \textbf{Data}
+      \item Models, Hardware Schematics
+      \item Everything that has a copyright.
+    \end{itemize}
+  \end{frame}
 
 	\begin{frame}{Font Licenses}
     \begin{columns}
@@ -255,12 +329,12 @@
       \begin{column}{0.6\textwidth}
 		    \begin{itemize}
 		    	\item Standardized licenses for creative works
-          \item Used for non-code
-          \item Can be mapped to code licenses
+          \item Different licenses
             \begin{itemize}
-              \item Unlicense (Public Domain) $\Rightarrow$ CC0
-              \item MIT (Permissive) $\Rightarrow$ CC-BY
-              \item GPL (Copyleft) $\Rightarrow$ CC-BY-SA
+              \item \textbf{CC0:} No Copyright
+              \item \textbf{CC-BY:} Attribution, Mention license
+              \item \textbf{CC-BY-SA:} CC-BY + ShareAlike
+              \item \textbf{CC-BY-SA-NC:} CC-BY-SA + NonCommercial
             \end{itemize}
 		    \end{itemize}
       \end{column}
@@ -280,13 +354,15 @@
     \begin{block}{Summary}
       \begin{itemize}
         \item Licenses are required so that people can use your work
+        \item Don't invent your own licenses
         \item You can use the following code licenses:
           \begin{itemize}
             \item Public Domain $\Rightarrow$ Unlicense
             \item Permissive $\Rightarrow$ MIT
-            \item Copyleft $\Rightarrow$ GPLv3
+            \item Weak Copyleft $\Rightarrow$ LGPL
+            \item Strong Copyleft $\Rightarrow$ GPLv3
           \end{itemize}
-        \item Use Google Fonts for free fonts
+        \item All assets need licenses as well
         \item Creative Commons is used for non-code
       \end{itemize}
     \end{block}
@@ -294,6 +370,11 @@
   \begin{frame}{If you need further help}
       \begin{itemize}
           % \href for functionality, \url for formatting
+        \item \href{https://ak-oss.gi.de/}{\url{https://ak-oss.gi.de/}}
+        \item \href{https://www.ifross.org/}{\url{https://www.ifross.org/}}
+          \begin{itemize}
+            \item \href{https://ifross.github.io/ifrOSS/Lizenzcenter}{Insb. Lizenscenter Institut für Rechtsfragen der Freien und Open Source Software}
+          \end{itemize}
         \item \href{https://choosealicense.com/}{\url{https://choosealicense.com}}
         \item \href{https://tldrlegal.com/}{\url{https://tldrlegal.com}}
         \item \href{https://www.gnu.org/licenses/license-list.en.html}{\url{https://www.gnu.org/licenses/license-list.en.html}}
@@ -302,7 +383,7 @@
       \end{itemize}
   \end{frame}
 
-	\begin{frame}{References}
+  \begin{frame}[allowframebreaks]{References}
 		% References slide in appendix
 		\renewcommand*{\bibfont}{\normalfont\scriptsize}
 		\printbibliography[heading=none]
