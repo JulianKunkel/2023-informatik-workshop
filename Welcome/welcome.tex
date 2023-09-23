@@ -1,63 +1,25 @@
 \PassOptionsToPackage{hyphens}{url}
 \documentclass[compress,aspectratio=169]{beamer}
-
-%\usetheme{Goettingen} % Generates a sidebar that is replaced by a header bar in the given theme
-\usepackage[official]{eurosym}
-\usepackage{multirow}
-\usepackage{units}
-\usepackage{../Git/Slides/assets/beamerthemeGoettingen} % make sure the theme file is on this path
-\usepackage{tikz}
-\usetikzlibrary{shapes}
-\usepackage{menukeys}
-\definecolor{bgcolor}{HTML}{E0E0E0}
-\newcommand{\console}[1]{
-  \colorbox{bgcolor}{\texttt{#1}}
-}
-\graphicspath{{../}{../Git/Slides/assets/}}
+\usepackage[GI]{assets/beamerConfig}
+\graphicspath{{./assets/}{../Git/Slides/assets/}}
 
 
 % --- document configuration ---
 \newcommand{\mytitle}{Workshop: Zukunft nachhaltig mit Hilfe der  \\Open Source Bewegung gestalten} 
-% Leave empty for no subtitle
 \newcommand{\mysubtitle}{Willkommen}
 \newcommand{\myauthor}{Julian Kunkel}
 \newcommand{\myauthorurl}{julian.kunkel@gwdg.de}
-\newcommand{\myvenue}{}
-% For example, use \today
-\newcommand{\mydate}{2023.04.17}
-% For example, Institute for Computer Science / GWDG
-\newcommand{\myinstitute}{Institute for Computer Science / GWDG}
-% Leave empty for no footer image
-\newcommand{\myfooterimage}{}
-\newcommand{\mygrouplogo}{hps-logo}
-% Images must be enabled manually under title page \titleLogo
-% Adjust position and width manually for fewer images
-\newcommand{\mytitleimageone}{}
-\newcommand{\mytitleimagetwo}{}
-\newcommand{\mytitleimagethree}{}
-
-
-% --- title page ---
-\title{\Large \mytitle}
-\venue{\myvenue}
-\date{\mydate}
-\subtitle{\mysubtitle}
-\authorURL{\myauthorurl}
-\author{{\myauthor}}
-\authorFooter{\myauthor \hspace{0.3cm} \includegraphics[height=1em]{\myfooterimage}}
-\institute{\myinstitute}
-\groupLogo{\includegraphics[width=2cm]{\mygrouplogo}}
-\titleLogo{
-%\includegraphics[height=2.7cm]{\mytitleimageone}
-%\includegraphics[height=2.7cm]{\mytitleimagetwo}
-%\includegraphics[height=2.7cm]{\mytitleimagethree}
-}
+\newcommand{\myvenue}{Informatik 2023}
+\newcommand{\mydate}{27.09.2023}
+\newcommand{\myinstitute}{GWDG / Uni-Göttingen}
 
 \setbeamertemplate{footline}[text line]{
 \begin{beamercolorbox}[sep=0.5em,wd=\paperwidth,leftskip=0.2cm,rightskip=0.1cm]{footlinecolor}
 \myauthor \hfill \insertVenue \hfill \insertframenumber\,/\,\inserttotalframenumber%\ref{pg:lastpage}
 \end{beamercolorbox}
 }
+
+\configuretitlepage
 
 \begin{document}
 
