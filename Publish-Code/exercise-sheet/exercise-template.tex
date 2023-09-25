@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercise Template
+% LaTeX Template
+% Version 1.1 (2023-06-30)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file provides the generic header that sets up the page formatting and
+% common custom macro and environment definitions that can be used for an exercise or tutorial sheet in a university course.
+%
+% You can consult the `exercise.sty` file for a full list of available macros.
+
+\documentclass[paper=a4]{scrartcl}
+
+\newcommand{\theauthor}{Marc-Philipp Knechtle}
+\newcommand{\thecourse}{Open Source Workshop} % Course long name
+\newcommand{\thecourseabbr}{AK-OSS Workshop} % Course abbreviation
+\newcommand{\thetype}{Exercise} % e.g. Exercise, Tutorial
+\newcommand{\theorganization}{Informatik 2023} % e.g. University Göttingen
+\newcommand{\theinstitution}{Arbeitskreis Open Source Software} % e.g. Institute of Computer Science
+\newcommand{\theyear}{2023} % The year
+\newcommand{\theexercisenumber}{1} % number of the exercise
+\newcommand{\thedate}{September 27, 2023} % e.g. March 28, 2022
+\newcommand{\theterm}{AK-OSS} % SoSe or WiSe 
+
+\usepackage{exercise} % Custom header and macros
+
+\begin{document}
+\date{\thedate}
+\exercise{\theexercisenumber}
+
+\parskip 8pt
+\makesheetheader
+
+\section*{Exercise Introduction}
+This sheet covers additional exercise material for the presentation about publishing your own open source code.
+
+\tableofcontents
+
+\bigskip
+
+\task{Hide your secrets}{10}
+
+	\subsection*{Task Preparation}
+		\begin{enumerate}
+			\item clone \href{https://github.com/marc-philipp-knechtle/2023-informatik-workshop-publish-code}{2023-informatik-workshop-publish-code}
+			\item create a venv inside this repository
+			\item activate the venv
+			\item install all dependencies
+			\item download the \texttt{bfg repo cleaner} \href{https://rtyley.github.io/bfg-repo-cleaner/}{here}
+		\end{enumerate}
+
+	\subsection*{Removing secrets}
+		\begin{enumerate}
+			\item Remove the \texttt{ssh} keys from the history using the \texttt{bfg repo cleaner}
+			\item Find the password which was used for the request in \texttt{fetch-weather-data.py}
+			\item Remove this passphrase from the history using the \texttt{bfg repo cleaner}
+		\end{enumerate}
+
+	\begin{hints}
+  		\item 	You can have a look at the commit history to find the passphrase which was accidentally commited.
+	\end{hints}
+
+	% \begin{submissions}{submission-folder} % The expected form of the results of completing the task
+	%	\submission{}findings.txt}{Write about X (at least 100 words).}
+	%\end{submissions}
+
+	\begin{literature} % Further Reading
+  		\item \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository}{github: removing sensitive data from a repository}
+  		\item \href{https://rtyley.github.io/bfg-repo-cleaner/}{bfg repo cleaner: examples}
+	\end{literature}
+
+\task{CI Pipeline using Github Actions}{30}
+	This task is about setting up a CI/CD pipeline for an open source project. You can do this for any project you like or simply for the \href{https://github.com/marc-philipp-knechtle/2023-informatik-workshop-publish-code}{2023-informatik-workshop-publish-code} repository.
+	\subsection*{Choose your project and fork it}
+		After you have selected an open-source project that you want to set up a CI pipeline for,
+create a fork of the project. This will create a copy of the project in your account.
+
+	\subsection*{Create actions for the forked project}
+		Start by adding the \href{https://docs.github.com/en/actions/quickstart}{quickstart github action} to the project. This action provides some gathered information about this project.
+		\newline
+		The action could for example trigger the build process for the project, run the test suite of the project, calculate the test coverage, or check if the code adhears to the style guidelines of the project. 
+	
+	\subsection*{Create a CI pieline = workflow for the project you forked} 
+		The pipeline should contain multiple actions and could for example end with publishing the newest build artifact on GitHub. Review the build status and logs of the newly created workflow.
+	
+	\subsection*{Make changes to the project and commit those changes validating the CI pipeline}
+		These changes could be something small like for example refactoring some variables. Review the CI/CD process logs again to check if your workflow ran successfully. 
+		
+	\begin{hints}
+		\item You can view the pipeline inside the \href{https://github.com/marc-philipp-knechtle/2023-informatik-workshop-publish-code}{2023-informatik-workshop-publish-code} repository. 
+		\item The workflows are stored inside the \texttt{project-dir/.github/workflows} directory
+	\end{hints}
+	
+	\begin{literature}
+		\item \href{https://docs.github.com/en/actions/quickstart}{github actions: quickstart}
+	\end{literature}
+
+
+	%\begin{tcolorbox}[title=https-server.py] % Include code blocks like this
+	%	\inputminted{Python}{http-server.py}
+	%	\embedfile{http-server.py} % Use embedfile package to enable download of the code
+	%\end{tcolorbox}
+	%\marginpar{\attachfile[appearance=false,icon=Paperclip,mimetype=text/plain]{http-server.py}} % Just in case someone's PDF reader has better support for attached files
+
+% \hardtask{Hard Task} % More difficult alternative to above task, uses the same time and number as the respective task
+
+% \extraTask{Extra Task}{5} % Additional tasks that are optional
+
+\end{document}
