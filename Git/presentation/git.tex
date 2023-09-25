@@ -45,7 +45,15 @@
 
 	\begin{frame}{Goals}
 		\begin{itemize}
-			\item TODO
+      \item Understanding git and its usages
+      \item How to
+        \begin{itemize}
+          \item Start a local repository
+          \item Manage and Commit updates
+          \item Sync between local and remote
+          \item Manage branches and merge conflicts
+        \end{itemize}
+        \item Be able to use git enough for the next project
 		\end{itemize}
 	\end{frame}
 
@@ -54,17 +62,23 @@
 	\begin{frame}{Original Problem}
     \begin{block}{How did people work together on code before?}
 		  \begin{itemize}
-        \item Make sure they weren't interefering each other:
+        \item How to make sure they weren't interefering each other:
           \begin{enumerate}
             \item Sending updated source code archives
+              \pause
             \item Shared Directory and file locks
+              \pause
             \item Shared Directory and luck
           \end{enumerate}
+          \pause
 		  	\item Code Backups were done manually
+          \pause
         \item Problems with that approach:
           \begin{itemize}
             \item If shared directory, they can overwrite it accidentally
+              \pause
             \item Local versons were vastly different, hard to merge together
+              \pause
             \item Everything relied on a lot of communication and manual work.
           \end{itemize}
 		  \end{itemize}
@@ -100,7 +114,7 @@
         \begin{itemize}
           \item Git is a program for versioning
           \item GitHub is a website that hosts Git projects
-          \item Git is not made by Github
+          \item Git is not made by GitHub
           \item Analogy: E-Mail
             \begin{itemize}
               \item Outlook (the program) is an Email-Client
@@ -125,17 +139,21 @@
   \begin{frame}{Why to use Git}
     \begin{itemize}
       \item Collaborate with others
+        \pause
       \item Manage multiple, actively worked on versions
         \begin{itemize}
           \item 2 people can't trivially write in the same file!
         \end{itemize}
+        \pause
       \item Version your code, take more risks, roll back mistakes!
+        \pause
       \item Make your code more discoverable
         \begin{itemize}
           \item It's common to Google: ``\texttt{<MY PROBLEM> github}''
           \item Better discoverability than personal website
         \end{itemize}
-      \item Use Github/Gitlab as an portfolio
+        \pause
+      \item Use GitHub/Gitlab as an portfolio
     \end{itemize}
   \end{frame}
 
@@ -168,10 +186,12 @@
             \begin{itemize}
               \item You do \emph{not} work on the remote server!
             \end{itemize}
+            \pause
           \item Every developer has its local version
             \begin{itemize}
               \item It doesn't change automatically!
             \end{itemize}
+            \pause
           \item Instead, one can manually
             \begin{itemize}
               \item \textbf{Pull} the newest commits from the server
@@ -180,6 +200,7 @@
         \end{itemize}
       \end{column}
       \begin{column}{0.5\textwidth}
+        \pause
         \begin{figure}
           \includegraphics[width=\textwidth]{./assets/dist.png}
           \caption{Every computer has a local version.}
@@ -194,16 +215,21 @@
         \begin{block}{Git is (mainly) for text files!}
           \begin{itemize}
             \item Because it tracks changes line by line
+              \pause
             \item The following are \textbf{NOT} text files:
               \begin{itemize}
                 \item Word files (\texttt{.docx})
+                  \pause
                 \item PDFs
+                  \pause
                 \item Audio, Video, Pictures...
               \end{itemize}
+              \pause
             \item Non text files can be put into git
               \begin{itemize}
                 \item Fullly replaced everytime!
               \end{itemize}
+              \pause
             \item A commit is the \textbf{difference} in lines
               \begin{itemize}
                 \item Called a \textbf{diff}
@@ -213,6 +239,7 @@
       \end{column}
       \begin{column}{0.4\textwidth}
         \begin{figure}
+          \pause
           \includegraphics[width=0.9\textwidth]{./assets/diff.png}
           \caption{Red is deleted, green is added}
         \end{figure}
@@ -249,12 +276,9 @@
     Before starting, we have to do the following:
     \begin{itemize}
       \item Check whether it is installed
-      \item Configure an SSH key
       \item Set an author and Email adress
+      \item Configure an SSH key (CLI only)
     \end{itemize}
-    \begin{center}
-    \Large All on the exercises!
-    \end{center}
   \end{frame}
 
   \begin{frame}{Create Repository (GitHub)}
@@ -388,6 +412,7 @@
           \end{center}
         \end{block}
       \end{column}
+      \pause
       \begin{column}{0.5\textwidth}
         \begin{block}{GitHub GUI}
           \begin{itemize}
@@ -457,10 +482,15 @@
 	\begin{frame}{Problem: Merge Conflicts}
 		\begin{itemize}
 			\item Alice and Bob pull a project and work on it
+        \pause
       \item Alice changes \texttt{src/foo.c}
+        \pause
       \item Alice commits and pushes her update
+        \pause
       \item Bob changes \texttt{src/foo.c}
+        \pause
       \item Bob also commits and pushes his update
+        \pause
       \item But Bob's version doesn't have Alice's update!
 		\end{itemize}
 	\end{frame}
@@ -475,6 +505,7 @@
       \item Branches then can get \textbf{merged} when done
       \item Extreme example: Linux Kernel 66-way merge
     \end{itemize}
+    \pause
     \begin{center}
       \includegraphics[width=0.8\textwidth]{./assets/guitarhero.png}
     \end{center}
@@ -492,7 +523,7 @@
                 \item \texttt{.DS\_Store}, \dots
               \end{itemize}
             \item A \textbf{\texttt{.gitignore}} can list files to ignore by git
-            \item Github provides templates for many languages!
+            \item GitHub provides templates for many languages!
               \begin{itemize}
                 \item \href{https://github.com/github/gitignore}{\url{https://github.com/github/gitignore}}
               \end{itemize}
@@ -500,6 +531,7 @@
         \end{block}
       \end{column}
       \begin{column}{0.5\textwidth}
+        \pause
         \begin{block}{git blame}
           \begin{itemize}
             \item Found a bug? Find out who did it.

@@ -43,41 +43,79 @@ What to expect and what this sheet will cover.
 
 \bigskip
 
-\task{Task}{10}
+\task{Set up your Environment}{5}
 
-\subsection*{Task Part 1}
+Ensure that you have the proper environment for your future work!
 
+\subsection*{Set up your Git environment}
+
+First, you need to install git. The instructions can be found at \href{https://git-scm.com/downloads}{\url{https://git-scm.com/downloads}}\\
+
+Next, install the GitHub client.
+\begin{itemize}
+  \item For Windows and macOS: \href{https://desktop.github.com/}{\url{https://desktop.github.com/}}
+  \item For Linux (community maintained): \href{https://github.com/shiftkey/desktop}{\url{https://github.com/shiftkey/desktop}}
+\end{itemize}
+
+Next, you have to configure your git. In a terminal, type the following:
 \begin{enumerate}
-	\item \cmd{echo "Hello World"}
+	\item \cmd{git config --global user.name "Your name"}
+  \item \cmd{git config --global user.email "youremail@example.com"}
 \end{enumerate}
 
-\subsection*{Task part 2}
+For command line use, you'd also have to \href{https://docs.github.com/en/authentication/connecting-to-github-with-ssh}{setup an SSH key}, but its not needed for the GitHub client.\\
 
-\begin{enumerate}
-	\item \texttt{echo "Hello World"}
-\end{enumerate}
+Lastly, log into your GitHub client.
 
-\begin{hints} % Give tips or hints that are helpful
-  \item 
+\subsection*{Optional: Install a proper text editor}
+
+Ensure that you have a proper editor for this and the following exercises. We recommend:
+
+\newpage
+
+\begin{itemize}
+  \item For beginners:
+    \begin{itemize}
+      \item Windows: \href{https://notepad-plus-plus.org/}{Notepad++}
+      \item Linux: \href{https://wiki.gnome.org/Apps/Gedit}{gedit} (GNOME) oder \href{https://kate-editor.org/}{kate} (KDE)
+      \item macOS: TextEdit (pre-installed)
+    \end{itemize}
+  \item For advanced users:
+    \begin{itemize}
+      \item \href{https://code.visualstudio.com/}{Visual Studio Code}
+      \item Or whichever editor you already use...
+    \end{itemize}
+\end{itemize}
+
+\task{Create and Clone a GitHub repository}{5}
+
+\subsection*{Create a local GitHub repository}
+
+Here are the steps:
+\begin{itemize}
+  \item Choose a folder with a few files, preferably text-files
+    \begin{itemize}
+      \item Or just create some random text files.
+    \end{itemize}
+  \item Initialize the repository using the GitHub client
+    \begin{itemize}
+      \item \texttt{FILE -> New Repository}
+    \end{itemize}
+  \item Add all files as changes; commit them.
+  \item Publish repository using the \texttt{Publish Repository} button
+\end{itemize}
+
+\subsection*{Clone a remote GitHub repository}
+
+
+\begin{itemize}
+  \item Clone the following repo using the GitHub client: \href{https://github.com/github/gitignore}{\url{https://github.com/github/gitignore}}
+  \item Play around, change a file and see the difference in the GitHub client!
+  \item Write a commit message. Do the local commit.
+\end{itemize}
+
+\begin{hints}
+  \item Since you do not have access, you cannot push your local changes
 \end{hints}
-
-\begin{submissions}{submission-folder} % The expected form of the results of completing the task
-	\submission{findings.txt}{Write about X (at least 100 words).}
-\end{submissions}
-
-\begin{literature} % Further Reading
-  \item 
-\end{literature}
-
-
-\begin{tcolorbox}[title=https-server.py] % Include code blocks like this
-	\inputminted{Python}{http-server.py}
-	\embedfile{http-server.py} % Use embedfile package to enable download of the code
-\end{tcolorbox}
-\marginpar{\attachfile[appearance=false,icon=Paperclip,mimetype=text/plain]{http-server.py}} % Just in case someone's PDF reader has better support for attached files
-
-\hardtask{Hard Task} % More difficult alternative to above task, uses the same time and number as the respective task
-
-\extraTask{Extra Task}{5} % Additional tasks that are optional
 
 \end{document}
