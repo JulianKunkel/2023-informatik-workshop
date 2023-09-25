@@ -1,0 +1,180 @@
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[compress,aspectratio=169]{beamer}
+\usepackage[GI]{assets/beamerConfig}
+\graphicspath{{./assets/}{../Git/Slides/assets/}}
+
+
+% --- document configuration ---
+\newcommand{\mytitle}{Workshop: Zukunft nachhaltig mit Hilfe der  \\Open Source Bewegung gestalten} 
+\newcommand{\mysubtitle}{Willkommen}
+\newcommand{\myauthor}{Julian Kunkel}
+\newcommand{\myauthorurl}{julian.kunkel@gwdg.de}
+\newcommand{\myvenue}{Informatik 2023}
+\newcommand{\mydate}{27.09.2023}
+\newcommand{\myinstitute}{GWDG / Uni-Göttingen}
+
+\setbeamertemplate{footline}[text line]{
+\begin{beamercolorbox}[sep=0.5em,wd=\paperwidth,leftskip=0.2cm,rightskip=0.1cm]{footlinecolor}
+\myauthor \hfill \insertVenue \hfill \insertframenumber\,/\,\inserttotalframenumber%\ref{pg:lastpage}
+\end{beamercolorbox}
+}
+
+\configuretitlepage
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\begin{frame}[t]{Table of contents}
+  \tableofcontents[subsectionstyle=hide/hide]
+\end{frame}
+
+% --- slides begin ---
+
+\section{Einführung}
+
+\begin{frame}{Open Source: Kurze Definition}
+  Open Source: Software, deren Quelltext 
+  \begin{itemize}
+    \item \textbf{öffentlich} ist und von 
+    \item \textbf{Dritten eingesehen, geändert und genutzt} werden kann
+  \end{itemize}
+  Open-Source-Software kann unter Einhaltung der Lizenzbedingungen meistens kostenfrei genutzt werden \\
+  \hfill \href{https://de.wikipedia.org/wiki/Open_Source}{Quelle: Wikipedia}
+\end{frame}
+
+\begin{frame}{Motivation für den Workshop}
+  \begin{itemize}
+    \item Nutzen und Potential von Open Source Software wird oft missverstanden
+      \begin{itemize}
+        \item Persönliche, wirtschaftliche und gesellschaftliche Relevanz
+      \end{itemize}
+    \item Open Source ist essentiell für digitale Unabhängigkeit 
+    \begin{itemize}
+      \item Ermächtigt Entwickler eigene Projekte umzusetzen 
+      \item Eigene Projekte öffentlich zu präsentieren
+      \item Gemeinsam kann Großes erreicht werden
+    \end{itemize}
+    \item Es gibt oftmals Hürden, zu bestehenden Projekten beizutragen
+    \begin{itemize}
+      \item Fehlendes Wissen um Prozesse und Techniken
+      \item Psychologische Barrieren
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ziele des Workshops}
+  \begin{block}{Teilnehmende sollen ermächtigt werden}
+  \begin{itemize}
+    \item zu Open-Source Projekten beitragen zu können
+    \item ein öffentliches Entwicklerprofil zeigen zu können
+    \item Hintergründe für die Open Source Bewegung zu verstehen
+    \item wichtigste Lizenzmodelle zu unterscheiden
+  \end{itemize}
+  \end{block}
+
+  \begin{block}{Bestandteile des Workshops}
+    \begin{itemize}
+      \item Theorie
+      \item Tutorials und Übungen
+      \item Diskussion
+      \item Hackathon - Eigene Beiträge/Ideen zu bestehenden Projekten
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Zielgruppe}
+  
+  \begin{block}{1. Teil: für jeden}
+    \begin{itemize}
+      \item Code-Entwickler
+      \item Open-Source Interessierte
+    \end{itemize}
+    \end{block}
+
+  \begin{block}{2. Teil: für Code-Beginner/Praktiker}
+  \begin{itemize}
+    \item Einstieg für Entwickler zu OSS-Beiträgen
+    \item Teilnahme mit eigenem Laptop
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Agenda}
+  \begin{itemize}
+    \item Willkommen - Julian
+    \item Hintergründe zur Open Source Bewegung - Sebastian
+    \item Digitale Souveränität - Harald
+    \item Plattformen für das Teilen von Code - Jonas
+    \item Lizenzfragen - Lars \\
+    \hrule
+    \item Grundlagen der Versionsverwaltung mit Git - Lars
+    \item Schritte zur Publizierung eigenen Codes - Marc-Philipp
+    \item Workflow für das Beitragen von Code - Nico
+    \item Hackathon - Alle 
+    \item \textit{Alternativ: OSS and Digital Sovereignity in Asia - Mahmad Farrahi}
+  \end{itemize}
+\end{frame}
+
+\section{Organisatorisches}
+
+\sectionIntroHidden
+
+\begin{frame}{Organisation}
+  \begin{itemize}
+    \item Der Workshop wurde Organisiert vom Arbeitskreis Open Source Software \\
+    \url{https://ak-oss.gi.de/}
+    \item Unterstützt von der Universität Göttingen und Universität Würzburg
+  \end{itemize}
+
+
+  \begin{block}{Involvierte Personen}
+    Julian Kunkel,
+    Lars Quentin,
+    Jonathan Decker,
+    Harald Wehnes,
+    Jonas Michler,
+    Marc-Philipp Knechtle,
+    Nico Schwind,
+    Mamad Farrahi,
+    Sebastian Bergmann
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}{Workshop-Mentalität}
+  \begin{itemize}
+    \item Knigge: Wir Duzen uns
+    \item Der Workshop soll Spaß machen...
+    \item Diskussion und Fragen haben Vorrang gegenüber detailliertem Inhalt
+    \item Fragen werden für Online-Teilnehmende am Präsentations-Laptop wiederholt
+    \item Pausen - nach Teil 1. und während praktischer Übungen im Teil 2 jederzeit
+    \item Online-Teilnehmende: Fragen gerne jederzeit in den Chat
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Umfrage}
+  Abfrage von Hintergründen kurz mit Handzeichen (bzw. Online via "+" und "-")
+  \begin{itemize}
+    \item Erfahrung mit Git-Versionsverwaltung (ja/viel - melden bzw. +)
+    \item Erfahrung mit Github oder anderen Code-Plattformen    
+  \end{itemize}
+
+ Was interessiert euch am meisten? (kurze Wortmeldungen)
+\end{frame}
+
+
+\begin{frame}{Weitere Information}
+  \begin{itemize}
+    \item AK OSS Webseite \url{https://ak-oss.gi.de/veranstaltung/information/zukunft-nachhaltig-mit-hilfe-der-open-source-bewegung-gestalten} 
+    \item Wir organisieren typischerweise monatlich einen Event z.B. Themennachmittag/Abend
+    \item Materialien des Workshops \url{https://github.com/JulianKunkel/2023-informatik-workshop}
+  \end{itemize}
+
+\end{frame}
+
+\end{document}
