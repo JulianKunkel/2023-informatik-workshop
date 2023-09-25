@@ -1,8 +1,22 @@
 # Outline
 
 - TODOs
-  - [ ] Sich verschidene Git GUIs anschauen, common tasks durchspielen
   - [ ] Sicherstellen dass es auch einen Mehrwert für nicht-Programmierer hat
+  - [ ] Graphen für alles wichtige
+  - [ ] try out without SSH key
+  - [x] Make the icons: font awesome notice
+  - [ ] Add pauses
+  - [ ] Add Github GUI
+  - [ ] Add information on how to add github GUI
+
+- Git-GUIs
+    - GH-GUI is not available on Linux
+    - SourceTree is not available on Linux
+    - Gitg doesnt work on mac
+    - Tower doesnt work on Linux
+    - Gitkraken is not free
+    - vscode integration is... vscode specific
+    - lazygit is great... but not more helpful to beginners than the CLI
 
 ## Motivation
 
@@ -19,7 +33,6 @@
   - This way, everyone can search and work with that history.
   - TODO: Mal lesen was andere so schreiben
   - Show the guitar hero history thingy on the right side
-  - (Not on the slide:) Let me sell you on it:
 
 - Git is not GitHub! Git is not GitLab!
   - Maybe many have heard about github or to a lesser extend gitlab
@@ -85,21 +98,50 @@
   - Install, and show links to instructions
   - Note that we do that together in the exercise
 
-- Setting up our Git GUI client
-  - Install, and show links to instructions
-  - Note that we do that together in the exercise
+- Initial configuration:
+    - Check if git installed
+    - Username... Password...
 
-- Configuring: Username / Email
+- Create repository
+    - Lets say you have some code you want to start to version...
+    - Web UI
 
-- Text schreiben, wie sieht es aus im Client
+- Go into folder with some existing data
+    - left side right side two terminals
+    - git init
+    - git status
+        - Staged erklären
+    - git add
+    - git status
+    - git rm (--cached)
 
-- Git status, staging etc
+- Commits
+    - git commit -m "MESSAGE"
+    - git log (--oneline)
 
-- Git commit
+- Push / Pull
+    - split terminal sides again
+    - push up
+    - pull down
 
-- GIt history
+- Remote repos
+    - clone
+    - git log --oneline
+    - edit file
+    - git diff
 
-- Absenden (push) / Holen (pull)
+## GitHub GUI
+
+- One slide introducing GitHub GUI
+  - Left side: CLI vs GUI
+  - Right Side: GitHub GUI
+
+- Show how cloning is done
+
+- Show how committing and push/pull is done
+
+- Maybe show how the status is shown?
+
 
 ## Advanced
 - Merge Konflikte
@@ -116,6 +158,8 @@
   - u.a. um sich nicht um merging sorgen machen zu müssen
   - und für organisatorische struktur
     - üblich nen feature branch zu haben (beispiel)
+  - Bild hiervon: <https://marc.info/?l=linux-kernel&m=139033182525831>
+  - Does github have a good guitar hero looking tool?
 
 - Git blame
 
@@ -125,6 +169,7 @@
     - Kram der nicht online sein soll
     - Temporärer Kram
 
+- Git bisect
 
 ## Conclusion
 - Summary
