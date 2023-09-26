@@ -47,8 +47,8 @@
 
 	\begin{frame}{Möglichkeiten finden, um zu Open-Source-Projekten beizutragen}
 		\begin{itemize}
-			\item Nutze github.com/topics/<topic>, um nach Themen zu suchen, die dich interessieren
-            \item good-first-issue-Tag (\href{https://github.com/topics/good-first-issue}{https://github.com/topics/good-first-issue})
+			\item Nutzen sie github.com/topics/<topic>, um nach Themen zu suchen, die sie interessieren
+            \item good-first-issue-Tag innerhalb eines Repositorys
             \item personalisierte Empfehlungen aufgrund von deinen bisherigen Beiträgen
             \item persönliches Dashboard
             \item GitHub Community Diskussion
@@ -69,7 +69,7 @@
                \item Änderungen werden nicht automatisch ins Upstreamrepository übertragen
                \item Updates im Upstreamrepository können in den Fork übernommen werden
                \item Forks verfügen über eigene Member, Branches, Tags etc.
-               \item Änderungen können anschließend dem Upstreamrepository vorgeschlagen werden (\ref{frame:Pull-Request})
+               \item Änderungen können anschließend dem Upstreamrepository vorgeschlagen werden
 		\end{itemize}
 \end{frame}
 \begin{frame}{Pull-Request}
@@ -80,7 +80,7 @@
               \item Änderungen werden überprüft, kommentiert, diskutiert etc.
               \item Änderungen können nach Prüfung zusammengefügt werden
               \item Repositorys können Pull-Request Vorlagen haben
-              \item Manche Repositorys haben Pull-Request Vorgaben, beispielsweise verlinken von dem gelösten Issue
+              \item Manche Repositorys haben Pull-Request Vorgaben in Form einer \glqq Contributing.md\grqq{} Datei, beispielsweise verlinken von dem gelösten Issue
 		\end{itemize}
 \end{frame}
 \section{Schritt-für-Schritt-Anleitung}
@@ -90,13 +90,13 @@
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\begin{onlyenv}<1->
-					\item https://github.com/topics/
+					\item \href{https://github.com/topics/}{https://github.com/topics/}
 				\end{onlyenv}
 				\begin{onlyenv}<2->
-					\item https://github.com/topics/ai
+					\item \href{https://github.com/topics/ai}{https://github.com/topics/ai}
 				\end{onlyenv}
 				\begin{onlyenv}<3->
-					\item https://github.com/topics/android
+					\item \href{https://github.com/topics/android}{https://github.com/topics/android}
 				\end{onlyenv}
 			\end{itemize}
 		\end{column}
@@ -128,9 +128,6 @@
    \begin{onlyenv}<3>
        	    \item Eintragungen machen
    \end{onlyenv}
-    \begin{onlyenv}<4>
-       	    \item In dem Fenster \glqq Clone Repository\grqq{} zum Tab \glqq URL\grqq{} wechseln und die kopierte URL von GitHub einfügen. Anschließend auf \glqq Clone \grqq{} drücken
-   \end{onlyenv}
 		\end{itemize}
   
 			\begin{tikzpicture}
@@ -138,7 +135,7 @@
 					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.7\textwidth}{Pictures/IssueTAb}};
 				\end{onlyenv}
 				\begin{onlyenv}<2>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/NewIssue}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{\textwidth}{Pictures/NewIssue}};
 				\end{onlyenv}
 				\begin{onlyenv}<3>
 					\node at (0,7) (img3)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Issue}};
@@ -161,7 +158,7 @@
 					\node at (0,5) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/ForkSpoon}};
 				\end{onlyenv}
 				\begin{onlyenv}<2>
-					\node at (0,5) (img2)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/CreateFork}};
+					\node at (0,5) (img2)	{\cutpic{0.3cm}{0.56\textwidth}{Pictures/CreateFork}};
 				\end{onlyenv}
 				
 			\end{tikzpicture}
@@ -206,9 +203,12 @@
 	\source{\url{www.github.com}}
 \end{frame}
 \begin{frame}{Ändern von Code}
+\begin{columns}
+    
+\begin{column}{0.4\textwidth}
 		\begin{itemize} 
    \begin{onlyenv}<1>
-       	    \item In dem gerade geklonten Repository auf \glqq Show in Explorer \grqq{}
+       	    \item In dem gerade geklonten Repository auf \glqq Show in Explorer\grqq{}
    \end{onlyenv}
    \begin{onlyenv}<2>
        	    \item index.html mit einem Editor öffnen
@@ -223,47 +223,57 @@
        	    \item Den gerade erstellten \glqq Commit\grqq{} durch \glqq Push origin\grqq{} in das Upstream-Repository übertragen
    \end{onlyenv}
 		\end{itemize}
-  
+  \end{column}
+  \begin{column}{0.7\textwidth}
 			\begin{tikzpicture}
 				\begin{onlyenv}<-1>
 					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Show in Explorer}};
 				\end{onlyenv}
 				\begin{onlyenv}<2>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/index.hmtl}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/index}};
 				\end{onlyenv}
 				\begin{onlyenv}<3>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.7\textwidth}{Pictures/index ändern}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/index ändern}};
 				\end{onlyenv}
                 \begin{onlyenv}<4>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.3\textwidth}{Pictures/Commit}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Commit}};
 				\end{onlyenv}
                 \begin{onlyenv}<5>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.45\textwidth}{Pictures/Push}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/Push}};
 				\end{onlyenv}
 			\end{tikzpicture}
+   \end{column}
 	\source{\url{www.github.com}}
+ \end{columns}
 \end{frame}
 \begin{frame}{Pull-Request}
 \label{pg:lastpage} % Label on last frame to get the page number for footer
+\begin{columns}
+    
+\begin{column}{0.4 \textwidth}
+    
+
 		\begin{itemize} 
    \begin{onlyenv}<1>
        	    \item In GitHub Desktop unter \glqq Branch\grqq{} auf \glqq Create Pull Request\grqq{}
    \end{onlyenv}
    \begin{onlyenv}<2>
-       	    \item index.html mit einem Editor öffnen
+       	    \item Dem Pull Request einen aussagekräftigen Titel sowie Beschreibung geben. Mit \# kann ein Issue verlinkt werden
    \end{onlyenv}
    
 		\end{itemize}
-  
+\end{column}
+\begin{column}{0.7\textwidth}
 			\begin{tikzpicture}
 				\begin{onlyenv}<1>
-					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.5\textwidth}{Pictures/CreatePullRequest}};
+					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/CreatePullRequest}};
 				\end{onlyenv}
 				\begin{onlyenv}<2>
-					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.5\textwidth}{Pictures/PullRequest}};
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.85\textwidth}{Pictures/PullRequest}};
 				\end{onlyenv}
-			
 			\end{tikzpicture}
+   \end{column}
+   \end{columns}
 	\source{\url{www.github.com}}
 \end{frame}
 %\begin{frame}{Dokumentation/Wiki}
