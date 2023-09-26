@@ -53,18 +53,39 @@ This sheet covers additional exercise material for the presentation about publis
 			\item (optional ...) activate the venv
 			% solution: source .venv/bin/activate
 			\item (optional ...) install all dependencies
+			% solution: pip3 install -r requirements.txt
 			\item download the \texttt{bfg repo cleaner} \href{https://rtyley.github.io/bfg-repo-cleaner/}{here}
+			% solution: wget https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar && mv bfg-1.14.0.jar bfg.jar
 		\end{enumerate}
 
 	\subsection*{Removing secrets}
 		\begin{enumerate}
-			\item Remove the \texttt{ssh} keys from the history using the \texttt{bfg repo cleaner}
+			\item Remove the \texttt{ssh} key from the history using the \texttt{bfg repo cleaner}. You can just remove the private key or remove the private key as well as the public key.
+			% solution:
+			% 	* remove the ssh key with rm (simply delete the file)
+			% 	* commit this, but the git show will still show the ssh key
+			% 	* run the bfg repo cleaner on this file: java -jar bfg.jar --delete-files id_ed25519
+			% 	* run the command the bfg repo cleaner recommends (git reflog expire --expire=now --all && git gc --prune=now --aggressive)
+			% 	* git show <commithash> should now result in an error
+				\begin{itemize}
+					\item 	You can verify this by running: \texttt{git show <commithash>}
+				\end{itemize}
 			\item Find the password which was used for the request in \texttt{fetch-weather-data.py}
+			% solution: 
+				% find the passphrase with git log
 			\item Remove this passphrase from the history using the \texttt{bfg repo cleaner}
+			% solution: 
+				% bfg --replace-text passwords.txt  my-repo.git
+				\begin{itemize}
+					\item 	You can verify this by running: \texttt{git show <commithash>}
+				\end{itemize}
 		\end{enumerate}
 
 	\begin{hints}
   		\item 	You can have a look at the commit history to find the passphrase which was accidentally commited.
+  		% solution: git log lets you view the commits with the corresponding commit message. the commit messages are pretty indicative
+  		\item 	You can have a look at the \texttt{.bfg-report} directory for a detailed analysis on the bfg process
+  		\item 	Have a look at the bfg repo cleaner examples ;)
 	\end{hints}
 
 	% \begin{submissions}{submission-folder} % The expected form of the results of completing the task
