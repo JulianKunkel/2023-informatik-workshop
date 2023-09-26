@@ -88,6 +88,7 @@ This sheet covers additional exercise material for the presentation about publis
   		\item 	You can have a look at the commit history to find the passphrase which was accidentally commited.
   		% solution: git log lets you view the commits with the corresponding commit message. the commit messages are pretty indicative
   		\item 	You can have a look at the \texttt{.bfg-report} directory for a detailed analysis on the bfg process
+  		\item 	If you want to push your changes to the upstream, you have to force-push it
   		\item 	Have a look at the bfg repo cleaner examples ;)
 	\end{hints}
 
@@ -103,13 +104,19 @@ This sheet covers additional exercise material for the presentation about publis
 \task{CI Pipeline using Github Actions}{30}
 	This task is about setting up a CI/CD pipeline for an open source project. You can do this for any project you like or simply for the \href{https://github.com/marc-philipp-knechtle/2023-informatik-workshop-publish-code}{2023-informatik-workshop-publish-code} repository.
 	\subsection*{Choose your project and fork it}
-		After you have selected an open-source project that you want to set up a CI pipeline for,
-create a fork of the project. This will create a copy of the project in your account.
+		After you have selected an open-source project that you want to set up a CI pipeline for, create a fork of the project. This will create a copy of the project in your account.
 
 	\subsection*{Create actions for the forked project}
 		Start by adding the \href{https://docs.github.com/en/actions/quickstart}{quickstart github action} to the project. This action provides some gathered information about this project.
 		\newline
-		The action could for example trigger the build process for the project, run the test suite of the project, calculate the test coverage, or check if the code adhears to the style guidelines of the project. 
+		You can write some additional actions:
+		\begin{itemize}
+			\item	Check if the code adhears to the style guidelines of the project (\texttt{pylint})
+			\item 	Calculate the test coverage
+			\item 	Run all the tests
+			\item 	Trigger the build process of the project
+			\item 	Push the build artifacts to some hosting solution
+		\end{itemize}
 	
 	\subsection*{Create a CI pieline = workflow for the project you forked} 
 		The pipeline should contain multiple actions and could for example end with publishing the newest build artifact on GitHub. Review the build status and logs of the newly created workflow.
