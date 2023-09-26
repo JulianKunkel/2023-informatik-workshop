@@ -75,7 +75,10 @@ This sheet covers additional exercise material for the presentation about publis
 				% find the passphrase with git log
 			\item Remove this passphrase from the history using the \texttt{bfg repo cleaner}
 			% solution: 
-				% bfg --replace-text passwords.txt  my-repo.git
+				% add password which was viewed in the previous exercise to passwords.txt
+				% java -jar bfg.jar --replace-text passwords.txt
+				% git reflog expire --expire=now --all && git gc --prune=now --aggressive
+				% git show should now show ***REMOVED*** instead of the passphrase
 				\begin{itemize}
 					\item 	You can verify this by running: \texttt{git show <commithash>}
 				\end{itemize}
