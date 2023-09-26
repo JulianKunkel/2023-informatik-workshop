@@ -1,0 +1,38 @@
+* Bei der Präsentation soll es um die Schritte zur veröffentlichung des eigenen codes gehen
+
+
+Hide your secrets
+	Sensitive data in git
+		* Was für Arten von Secrets könnten im Version Control System landen die man da nicht drinnen haben will?
+		* Was ist das besondere Problem darin die Daten in Git zu haben?  
+		* Security risk in private repositories -> je oefter das repo gecloned wird, desto oefter werden die secret files dupliziert und liegen dann unverschluesselt auf der Festplatte
+		
+	Removing sensitive data
+
+	Encrypt sensitive data
+		* Vorstellung der technologien wie sensitive data gespeichert werden kann
+		* Wie funktionieren die jeweiligen Tools intern?
+
+		* Verweisen auf die Uebung wo man die Tools anwenden kann.
+
+Creating a healthy community
+	Points of interaction with the community
+
+	Code of Conduct
+		Contributer Covenant: special code of conduct for opensource projects
+			* famous adopters = swift, tensorflow, golang ...
+
+Consistency with Continuous Integration
+	Continuous Integration overview
+		* Wer hat  schonmal von CI gehoert, oder von DevOps
+		* Ziel: Time to Release minimieren 
+
+		* Begriffe die hier auf der Folie genannt sind werden oefter verwendet, wichtig ist die Abgrenzung dieser Begriffe
+
+	Github Actions
+		
+		
+
+Documentation 
+
+Promote your code

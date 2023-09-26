@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercise Template
+% LaTeX Template
+% Version 1.1 (2023-06-30)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file provides the generic header that sets up the page formatting and
+% common custom macro and environment definitions that can be used for an exercise or tutorial sheet in a university course.
+%
+% You can consult the `exercise.sty` file for a full list of available macros.
+
+\documentclass[paper=a4]{scrartcl}
+
+\newcommand{\theauthor}{Lars Quentin}
+\newcommand{\thecourse}{Introduction to Git} % Course long name
+\newcommand{\thecourseabbr}{AK-OSS} % Course abbreviation
+\newcommand{\thetype}{Exercise} % e.g. Exercise, Tutorial
+\newcommand{\theorganization}{INFORMATIK 2023} % e.g. University Göttingen
+\newcommand{\theinstitution}{Arbeitskreis Open Source Software} % e.g. Institute of Computer Science
+\newcommand{\theyear}{} % The year
+\newcommand{\theexercisenumber}{1} % number of the exercise
+\newcommand{\thedate}{27.09.2023} % e.g. March 28, 2022
+\newcommand{\theterm}{AK-OSS} % SoSe or WiSe
+
+\usepackage{exercise} % Custom header and macros
+
+\begin{document}
+\date{\thedate}
+\exercise{\theexercisenumber}
+
+\parskip 8pt
+\makesheetheader
+
+\section*{Exercise Introduction}
+What to expect and what this sheet will cover.
+
+\tableofcontents
+
+\bigskip
+
+\task{Set up your Environment}{5}
+
+Ensure that you have the proper environment for your future work!
+
+\subsection*{Set up your Git environment}
+
+First, you need to install git. The instructions can be found at \href{https://git-scm.com/downloads}{\url{https://git-scm.com/downloads}}\\
+
+Next, install the GitHub client.
+\begin{itemize}
+  \item For Windows and macOS: \href{https://desktop.github.com/}{\url{https://desktop.github.com/}}
+  \item For Linux (community maintained): \href{https://github.com/shiftkey/desktop}{\url{https://github.com/shiftkey/desktop}}
+\end{itemize}
+
+Next, you have to configure your git. In a terminal, type the following:
+\begin{enumerate}
+	\item \cmd{git config --global user.name "Your name"}
+  \item \cmd{git config --global user.email "youremail@example.com"}
+\end{enumerate}
+
+For command line use, you'd also have to \href{https://docs.github.com/en/authentication/connecting-to-github-with-ssh}{setup an SSH key}, but its not needed for the GitHub client.\\
+
+Lastly, log into your GitHub client.
+
+\subsection*{Optional: Install a proper text editor}
+
+Ensure that you have a proper editor for this and the following exercises. We recommend:
+
+\newpage
+
+\begin{itemize}
+  \item For beginners:
+    \begin{itemize}
+      \item Windows: \href{https://notepad-plus-plus.org/}{Notepad++}
+      \item Linux: \href{https://wiki.gnome.org/Apps/Gedit}{gedit} (GNOME) oder \href{https://kate-editor.org/}{kate} (KDE)
+      \item macOS: TextEdit (pre-installed)
+    \end{itemize}
+  \item For advanced users:
+    \begin{itemize}
+      \item \href{https://code.visualstudio.com/}{Visual Studio Code}
+      \item Or whichever editor you already use...
+    \end{itemize}
+\end{itemize}
+
+\task{Create and Clone a GitHub repository}{5}
+
+\subsection*{Create a local GitHub repository}
+
+Here are the steps:
+\begin{itemize}
+  \item Choose a folder with a few files, preferably text-files
+    \begin{itemize}
+      \item Or just create some random text files.
+    \end{itemize}
+  \item Initialize the repository using the GitHub client
+    \begin{itemize}
+      \item \texttt{FILE -> New Repository}
+    \end{itemize}
+  \item Add all files as changes; commit them.
+  \item Publish repository using the \texttt{Publish Repository} button
+\end{itemize}
+
+\subsection*{Clone a remote GitHub repository}
+
+
+\begin{itemize}
+  \item Clone the following repo using the GitHub client: \href{https://github.com/github/gitignore}{\url{https://github.com/github/gitignore}}
+  \item Play around, change a file and see the difference in the GitHub client!
+  \item Write a commit message. Do the local commit.
+\end{itemize}
+
+\begin{hints}
+  \item Since you do not have access, you cannot push your local changes
+\end{hints}
+
+\end{document}
