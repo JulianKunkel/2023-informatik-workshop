@@ -1,0 +1,4 @@
+https://docs.github.com/de/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
+https://docs.github.com/de/issues/tracking-your-work-with-issues/creating-an-issue#erstellen-eines-issues-mit-github-cli
+https://docs.github.com/de/get-started/quickstart/fork-a-repo
+https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests

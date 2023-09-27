@@ -1,0 +1,229 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Template
+% LaTeX Template
+% Version 2.2 (2023-07-17)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[compress,aspectratio=169]{beamer}
+
+% make sure the theme and config files are on this path
+\usepackage[GI]{assets/beamerConfig}
+
+\addbibresource{ref.bib}
+\graphicspath{{.}{assets/}}
+
+% --- document configuration ---
+\newcommand{\mytitle}{Workflow für das Beitragen von Code zu bestehenden Projekten}
+% Leave empty for no subtitle
+\newcommand{\mysubtitle}{Am Beispiel von GitHub}
+\newcommand{\myauthor}{Nico Schwind}
+\newcommand{\myauthorurl}{}
+\newcommand{\myvenue}{Informatik 2023}
+% For example, use \today
+\newcommand{\mydate}{\today}
+% For example, Institute for Computer Science / GWDG / Uni Göttingen
+\newcommand{\myinstitute}{Universität Würzburg}
+
+\configuretitlepage
+
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\begin{frame}[t]{Table of contents}
+  \tableofcontents[subsectionstyle=hide/hide]
+\end{frame}
+
+% --- slides begin ---
+
+\section{Grundlagen}
+
+\begin{frame}{Möglichkeiten finden, um zu Open-Source Projekten beizutragen}
+  \begin{itemize}
+    \item Nutze github.com/topics/<topic> um nach Themen zu suchen, die dich interessieren
+    \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Itemize within itemize}
+    \begin{itemize}
+        \item List
+            \begin{itemize}
+                \item Sub-bullet
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Block and negative space}
+    \vspace*{-3em} % Make more space by moving everything up
+    \begin{block}{Block}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\section{Section 2}
+\sectionIntroHidden % Show an outline of the current section with hidden subsections
+%\sectionIntro % Show an outline of the current section with subsections
+
+\begin{frame}{Includegraphics}
+    \centering
+    \includegraphics[width=0.6\textwidth]{assets/GI_Logo_AK-OSS.png}\\
+    \source{Image source: \url{https://ak-oss.gi.de/}}
+\end{frame}
+
+\subsection{Subsec 1} % Subsections are used for highlighting parts of the top navigation bar, the names only show up in the sectionIntro
+\begin{frame}{Pause}
+    \begin{itemize}
+        \item 1
+        \pause  % Create separate slides in the pdf to show points one at a time
+        \item 2
+        \pause
+        \item 3
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Columns}
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+    Left column
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    Right column % Can also be used for inserting images next to text
+    \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tikz graphics}
+    % Use tikz for placing images based on page coordinates
+    \begin{tikzpicture}[remember picture,overlay]
+      \node [xshift=-4.8cm,yshift=-3.8cm] at (current page.north east)
+        {\includegraphics[width=4cm]{assets/GI_Logo_AK-OSS.png}};
+    \end{tikzpicture}
+    \source{Image source: \url{https://ak-oss.gi.de/}}
+\end{frame}
+
+\begin{frame}[fragile]{Code listing}
+	
+	\texttt{Simple HTTP Server} implemented in Python
+	
+	\begin{tcolorbox}[title=Python]
+		\footnotesize\begin{minted}[xleftmargin=1em,linenos]{Python}
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+	def do_GET(self):
+		self.send_response(200)
+		self.end_headers()
+		self.wfile.write(b'Hello, world!')
+
+HOSTNAME = "localhost"
+PORT = 8000
+httpd = HTTPServer((HOSTNAME, PORT), SimpleHTTPRequestHandler)
+print("Server starting at http://" + HOSTNAME + ":" + str(PORT))
+httpd.serve_forever()
+		\end{minted}
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Code listing from file}
+    % Use minted package for handling code listings on slides
+    \texttt{Hello World} implemented in C++
+
+    \begin{tcolorbox}[title=C++]
+        \footnotesize\inputminted[xleftmargin=1em,linenos]{c++}{assets/hello-world.cpp}
+    \end{tcolorbox}
+
+\end{frame}
+
+\begin{frame}{Todonotes}
+    \todo{Set todo reminders for yourself}
+\end{frame}
+
+\begin{frame}{Quotes}
+    % Make a quote the central element of a slide to emphasize its importance
+    \vspace*{\fill}
+    \begin{quote}
+        \centering\Large
+        \enquote{Non-reproducible single occurrences are of no significance to science.}
+    \end{quote}
+    \vspace{1cm}
+    \hspace*\fill{\small--- Karl Popper, The Logic of Scientific Discovery, 2002, p.\,66}
+    \vspace*{\fill}
+
+    \source{\cite{popperLogicScientificDiscovery2002}}
+\end{frame}
+
+
+\section{Section 3}
+
+\begin{frame}{Rounded Corners for Images}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Use the \texttt{\textbackslash cutpic} command to round corners of images
+				\item Usage: \texttt{\textbackslash cutpic\{corner size\}\{width\}\{file\}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\vspace*{-0.2cm}
+			\cutpic{0.3cm}{\textwidth}{example-image}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[t]{Sequentially Reveal Images}
+	\begin{columns}[T]
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\begin{onlyenv}<1->
+					\item Sequentially reveal text
+				\end{onlyenv}
+				\begin{onlyenv}<2->
+					\item Along with images
+				\end{onlyenv}
+				\begin{onlyenv}<3->
+					\item Adapt this to your needs
+				\end{onlyenv}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{tikzpicture}
+				\begin{onlyenv}<1->
+					\node at (0,0) (img1)	{\cutpic{0.3cm}{\textwidth}{example-image-a}};
+				\end{onlyenv}
+				\begin{onlyenv}<2->
+					\node at (0,-0.5) (img2)	{\cutpic{0.3cm}{\textwidth}{example-image-b}};
+				\end{onlyenv}
+				\begin{onlyenv}<3->
+					\node at (0,-1) (img3)	{\cutpic{0.3cm}{\textwidth}{example-image-c}};
+				\end{onlyenv}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	\source{Put Multiple sources\\
+		one per line}
+\end{frame}
+
+\begin{frame}{Last Frame}
+\label{pg:lastpage} % Label on last frame to get the page number for footer
+
+\end{frame}
+
+\begin{frame}{References}
+    % References slide in appendix
+    \renewcommand*{\bibfont}{\normalfont\scriptsize}
+    \printbibliography[heading=none]
+\end{frame}
+
+\end{document}

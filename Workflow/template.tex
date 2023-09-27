@@ -1,0 +1,294 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Template
+% LaTeX Template
+% Version 2.2 (2023-07-17)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[compress,aspectratio=169]{beamer}
+
+% make sure the theme and config files are on this path
+\usepackage[GI]{assets/beamerConfig}
+
+\addbibresource{ref.bib}
+\graphicspath{{.}{assets/}}
+
+% --- document configuration ---
+\newcommand{\mytitle}{Workflow für das Beitragen von Code zu bestehenden Projekten}
+% Leave empty for no subtitle
+\newcommand{\mysubtitle}{Am Beispiel von GitHub und GitHub Desktop}
+\newcommand{\myauthor}{Nico Schwind}
+\newcommand{\myauthorurl}{}
+\newcommand{\myvenue}{Informatik 2023}
+% For example, use \today
+\newcommand{\mydate}{\today}
+% For example, Institute for Computer Science / GWDG
+\newcommand{\myinstitute}{Universität Würzburg}
+
+\configuretitlepage
+
+\begin{document}
+
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+
+	\begin{frame}[t]{Table of contents}
+		\tableofcontents[subsectionstyle=hide/hide]
+	\end{frame}
+
+	% --- slides begin ---
+
+	\section{Grundlagen}
+
+	\begin{frame}{Möglichkeiten finden, um zu Open-Source-Projekten beizutragen}
+		\begin{itemize}
+			\item Nutzen sie github.com/topics/<topic>, um nach Themen zu suchen, die sie interessieren
+            \item good-first-issue-Tag innerhalb eines Repositorys
+            \item personalisierte Empfehlungen aufgrund von deinen bisherigen Beiträgen
+            \item persönliches Dashboard
+            \item GitHub Community Diskussion
+		\end{itemize}
+	\end{frame}
+    \begin{frame}{Issue}
+		\begin{itemize}
+			\item Hinter Issues können Ideen, Feedback, Aufgaben oder Fehler stecken
+            \item Dienen der Nachverfolgung der Arbeit am Projekt
+            \item Können einzelnen Projektmitarbeitern zugewiesen werden
+            \item Erster Schritt im GitHub-Flow
+            \item Größere Repositorys nutzen Issuevorlagen oder Issueformulare
+		\end{itemize}
+	\end{frame}
+ \begin{frame}{Fork}
+		\begin{itemize}
+            	\item Kopie des ursprünglichen Repository (Upstreamrepository)
+               \item Änderungen werden nicht automatisch ins Upstreamrepository übertragen
+               \item Updates im Upstreamrepository können in den Fork übernommen werden
+               \item Forks verfügen über eigene Member, Branches, Tags etc.
+               \item Änderungen können anschließend dem Upstreamrepository vorgeschlagen werden
+		\end{itemize}
+\end{frame}
+\begin{frame}{Pull-Request}
+\label{frame:Pull-Request}
+		\begin{itemize}
+            		\item informieren von Projektmitarbeitern über Änderungen die in einem Branch (Fork) gemacht wurden
+              \item alle Änderungen zum ursprünglichen Branch (Fork) werden übersichtlich dargestellt
+              \item Änderungen werden überprüft, kommentiert, diskutiert etc.
+              \item Änderungen können nach Prüfung zusammengefügt werden
+              \item Repositorys können Pull-Request Vorlagen haben
+              \item Manche Repositorys haben Pull-Request Vorgaben in Form einer \glqq Contributing.md\grqq{} Datei, beispielsweise verlinken von dem gelösten Issue
+		\end{itemize}
+\end{frame}
+\section{Schritt-für-Schritt-Anleitung}
+\sectionIntroHidden
+\begin{frame}{Nach Thema Suchen}
+		\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\begin{onlyenv}<1->
+					\item \href{https://github.com/topics/}{https://github.com/topics/}
+				\end{onlyenv}
+				\begin{onlyenv}<2->
+					\item \href{https://github.com/topics/ai}{https://github.com/topics/ai}
+				\end{onlyenv}
+				\begin{onlyenv}<3->
+					\item \href{https://github.com/topics/android}{https://github.com/topics/android}
+				\end{onlyenv}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{tikzpicture}
+				\begin{onlyenv}<1->
+					\node at (0,0) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Topic}};
+				\end{onlyenv}
+				\begin{onlyenv}<2->
+					\node at (0,0) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/TOPIC AI}};
+				\end{onlyenv}
+				\begin{onlyenv}<3->
+					\node at (0,0) (img3)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Topic Android}};
+				\end{onlyenv}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	\source{\url{www.github.com}}
+\end{frame}
+
+\begin{frame}{Issue erstellen}
+\begin{itemize} 
+   \begin{onlyenv}<1>
+       	    \item Besuchen sie \href{https://github.com/octocat/Spoon-Knife}{https://github.com/octocat/Spoon-Knife} und wechseln auf den Issue Tab 
+   \end{onlyenv}
+   \begin{onlyenv}<2>
+       	    \item Auf New Issue klicken
+   \end{onlyenv}
+   \begin{onlyenv}<3>
+       	    \item Eintragungen machen
+   \end{onlyenv}
+		\end{itemize}
+  
+			\begin{tikzpicture}
+				\begin{onlyenv}<-1>
+					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.7\textwidth}{Pictures/IssueTAb}};
+				\end{onlyenv}
+				\begin{onlyenv}<2>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{\textwidth}{Pictures/NewIssue}};
+				\end{onlyenv}
+				\begin{onlyenv}<3>
+					\node at (0,7) (img3)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Issue}};
+				\end{onlyenv}
+			\end{tikzpicture}
+	\source{\url{www.github.com}}
+\end{frame}
+\begin{frame}{Repository in GitHub forken}	
+\begin{itemize} 
+   \begin{onlyenv}<1>
+       	    \item Besuchen sie \href{https://github.com/octocat/Spoon-Knife}{https://github.com/octocat/Spoon-Knife} und klicken auf Fork 
+   \end{onlyenv}
+   \begin{onlyenv}<2>
+       	    \item Anschließend auf \glqq Create fork\grqq{}
+   \end{onlyenv}
+		\end{itemize}
+  
+			\begin{tikzpicture}
+				\begin{onlyenv}<-1>
+					\node at (0,5) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/ForkSpoon}};
+				\end{onlyenv}
+				\begin{onlyenv}<2>
+					\node at (0,5) (img2)	{\cutpic{0.3cm}{0.56\textwidth}{Pictures/CreateFork}};
+				\end{onlyenv}
+				
+			\end{tikzpicture}
+	\source{\url{www.github.com}}
+\end{frame}
+\begin{frame}{Repository in GitHub Desktop clonen}	
+\begin{itemize} 
+   \begin{onlyenv}<1>
+       	    \item In dem Fork Repository auf \glqq Code \grqq{} klicken
+   \end{onlyenv}
+   \begin{onlyenv}<2>
+       	    \item Anschließend die URL kopieren und zu GitHub Desktop wechseln
+   \end{onlyenv}
+   \begin{onlyenv}<3>
+       	    \item In GitHub Desktop auf \glqq File \grqq{} und \glqq Clone repository\grqq{}
+   \end{onlyenv}
+   \begin{onlyenv}<4>
+       	    \item Auf den Tab \glqq URL \grqq{} wechseln und die eben kopierte URL einfügen und auf \glqq Clone \grqq{} drücken
+   \end{onlyenv}
+   \begin{onlyenv}<5>
+       	    \item Auswählen wie man den Fork benutzen möchte. In unserem Fall einfach auf \glqq Continue\grqq{}
+   \end{onlyenv}
+		\end{itemize}
+  
+			\begin{tikzpicture}
+				\begin{onlyenv}<-1>
+					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/ForkCode}};
+				\end{onlyenv}
+				\begin{onlyenv}<2>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.5\textwidth}{Pictures/Copy URL}};
+				\end{onlyenv}
+				\begin{onlyenv}<3>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.5\textwidth}{Pictures/GHDesktopClone}};
+				\end{onlyenv}
+                \begin{onlyenv}<4>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.6\textwidth}{Pictures/GHDesktopPasteURL}};
+				\end{onlyenv}
+                \begin{onlyenv}<5>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.45\textwidth}{Pictures/UseFork}};
+				\end{onlyenv}
+			\end{tikzpicture}
+	\source{\url{www.github.com}}
+\end{frame}
+\begin{frame}{Ändern von Code}
+\begin{columns}
+    
+\begin{column}{0.4\textwidth}
+		\begin{itemize} 
+   \begin{onlyenv}<1>
+       	    \item In dem gerade geklonten Repository auf \glqq Show in Explorer\grqq{}
+   \end{onlyenv}
+   \begin{onlyenv}<2>
+       	    \item index.html mit einem Editor öffnen
+   \end{onlyenv}
+   \begin{onlyenv}<3>
+       	    \item Änderungen machen bspw. Name einfügen
+   \end{onlyenv}
+   \begin{onlyenv}<4>
+       	    \item Zurück zu GitHub Desktop wechseln und unten Links einen passenden Commit-Kommentar einfügen und anschließend auf \glqq Commit to main\grqq{}
+   \end{onlyenv}
+   \begin{onlyenv}<5>
+       	    \item Den gerade erstellten \glqq Commit\grqq{} durch \glqq Push origin\grqq{} in das Upstream-Repository übertragen
+   \end{onlyenv}
+		\end{itemize}
+  \end{column}
+  \begin{column}{0.7\textwidth}
+			\begin{tikzpicture}
+				\begin{onlyenv}<-1>
+					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Show in Explorer}};
+				\end{onlyenv}
+				\begin{onlyenv}<2>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/index}};
+				\end{onlyenv}
+				\begin{onlyenv}<3>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/index ändern}};
+				\end{onlyenv}
+                \begin{onlyenv}<4>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.9\textwidth}{Pictures/Commit}};
+				\end{onlyenv}
+                \begin{onlyenv}<5>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/Push}};
+				\end{onlyenv}
+			\end{tikzpicture}
+   \end{column}
+	\source{\url{www.github.com}}
+ \end{columns}
+\end{frame}
+\begin{frame}{Pull-Request}
+\label{pg:lastpage} % Label on last frame to get the page number for footer
+\begin{columns}
+    
+\begin{column}{0.4 \textwidth}
+    
+
+		\begin{itemize} 
+   \begin{onlyenv}<1>
+       	    \item In GitHub Desktop unter \glqq Branch\grqq{} auf \glqq Create Pull Request\grqq{}
+   \end{onlyenv}
+   \begin{onlyenv}<2>
+       	    \item Dem Pull Request einen aussagekräftigen Titel sowie Beschreibung geben. Mit \# kann ein Issue verlinkt werden
+   \end{onlyenv}
+   
+		\end{itemize}
+\end{column}
+\begin{column}{0.7\textwidth}
+			\begin{tikzpicture}
+				\begin{onlyenv}<1>
+					\node at (0,7) (img1)	{\cutpic{0.3cm}{0.8\textwidth}{Pictures/CreatePullRequest}};
+				\end{onlyenv}
+				\begin{onlyenv}<2>
+					\node at (0,7) (img2)	{\cutpic{0.3cm}{0.85\textwidth}{Pictures/PullRequest}};
+				\end{onlyenv}
+			\end{tikzpicture}
+   \end{column}
+   \end{columns}
+	\source{\url{www.github.com}}
+\end{frame}
+%\begin{frame}{Dokumentation/Wiki}
+%\
+	%	\begin{itemize}
+     %       \item  	
+		%\end{itemize}
+%\end{frame}
+
+	
+
+	%\begin{frame}{References}
+		% References slide in appendix
+		%\renewcommand*{\bibfont}{\normalfont\scriptsize}
+		%\printbibliography[heading=none]
+	%\end{frame}
+
+\end{document}
