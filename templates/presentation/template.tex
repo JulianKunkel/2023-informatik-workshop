@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Template
+% LaTeX Template
+% Version 2.2 (2023-07-17)
+%
+% This template was adapted by:
+% Jonathan Decker (jonathan.decker@uni-goettingen.de)
+% From a template made by:
+% Julian Kunkel (julian.kunkel@gwdg.de)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[compress,aspectratio=169]{beamer}
+
+% make sure the theme and config files are on this path
+\usepackage[GI]{assets/beamerConfig}
+
+\addbibresource{ref.bib}
+\graphicspath{{.}{assets/}}
+
+% --- document configuration ---
+\newcommand{\mytitle}{My Title}
+% Leave empty for no subtitle
+\newcommand{\mysubtitle}{My Subtitle}
+\newcommand{\myauthor}{My Author}
+\newcommand{\myauthorurl}{My Author URL}
+\newcommand{\myvenue}{Informatik 2023}
+% For example, use \today
+\newcommand{\mydate}{My Date}
+% For example, Institute for Computer Science / GWDG
+\newcommand{\myinstitute}{My institute}
+
+\configuretitlepage
+
+\begin{document}
+
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+
+	\begin{frame}[t]{Table of contents}
+		\tableofcontents[subsectionstyle=hide/hide]
+	\end{frame}
+
+	% --- slides begin ---
+
+	\section{Section 1}
+
+	\begin{frame}{Slide 1}
+		\begin{itemize}
+			\item
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Last Frame}
+		\label{pg:lastpage} % Label on last frame to get the page number for footer
+
+	\end{frame}
+
+	\begin{frame}{References}
+		% References slide in appendix
+		\renewcommand*{\bibfont}{\normalfont\scriptsize}
+		\printbibliography[heading=none]
+	\end{frame}
+
+\end{document}
