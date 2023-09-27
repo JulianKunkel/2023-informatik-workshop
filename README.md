@@ -4,7 +4,7 @@ Dies ist das Repository zu allen Präsentationen des [Workshops "Zukunft nachhal
 
 Der Workshop unterteilt sich in theoretische und angewandte Module zu den Themenkomplexen:
 
-- Hintegründe zur Open Source Bewegung (Theorie)
+- [Hintegründe zur Open Source Bewegung (Theorie)](./open-source.pdf)
 - [Digitale Souveränität](./DigitalSovereignty)
 - [Grundlagen der Versionsverwaltung mit Git (Theorie + Tutorial)](./Git)
 - [Plattformen für das Teilen von Code und deren Wichtigkeit für das eigene Profil - bspw. GitHub und GitLab (Theorie + Demos)](./GitHub-GitLab)
